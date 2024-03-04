@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../utils/app_colors.dart';
-
 ThemeData getAppTheme() {
   return ThemeData(
     primaryColor: AppColors.primary,
@@ -44,8 +42,10 @@ ThemeData getAppTheme() {
         //focused border
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-
         ),
+        errorBorder:
+            OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+
         //hint
         hintStyle: TextStyle(
           color: AppColors.primary,

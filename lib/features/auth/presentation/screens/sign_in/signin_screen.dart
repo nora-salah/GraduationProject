@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pill_detection/core/widgets/custom_toast.dart';
+import 'package:pill_detection/features/auth/presentation/cubit/sign_cubit.dart';
+import 'package:pill_detection/features/auth/presentation/cubit/sign_state.dart';
 
 import '../../../../../core/utils/app_assets.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../../../../../core/utils/navigate.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../core/widgets/custom_images.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
 import '../../../../../core/widgets/custom_text_field.dart';
 
@@ -17,107 +21,169 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(50),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
-              child: Text(
-                AppStrings.signIn,
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      fontSize: 40.sp,
-                    ),
-              ),
-            ),
-            SizedBox(
-              height: 2.h,
-            ),
-            Text(
-              AppStrings.signInToYourAccount,
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
-            SizedBox(
-              height: 146.h,
-            ),
-            CustomTextFormField(
-              controller: TextEditingController(),
-              label: AppStrings.username,
-              icon2: Icons.person,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            CustomTextFormField(
-              controller: TextEditingController(),
-              label: AppStrings.password,
-              icon: Icons.remove_red_eye_outlined,
-              icon2: Icons.lock,
-            ),
-            SizedBox(
-              height: 9.h,
-            ),
-            Row(
-              children: [
-                Text(
-                  AppStrings.rememberMe,
-                  style: Theme.of(context).textTheme.displaySmall,
-                ),
-                SizedBox(
-                  width: 75.w,
-                ),
-                Text(
-                  AppStrings.forgetPassword,
-                  style: Theme.of(context)
-                      .textTheme
-                      .displaySmall!
-                      .copyWith(decoration: TextDecoration.underline),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 87.h,
-            ),
-            SizedBox(
-              height: 55.h,
-              width: 330.w,
-              child: CustomButton(
-                  text: AppStrings.login,
-                  onPressed: () {
-                    customNavigate(context, "/signInScreen");
-                  }),
-            ),
-            SizedBox(
-              height: 41.h,
-            ),
-            OtherMethodToSign(txt:  AppStrings.orSignInWith,),
-            SizedBox(
-              height: 42.h,
-            ),
-            Row(
-              children: [
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(50),
+          child: BlocConsumer<SignCubit, SignState>(
+            listener: (context, state) {
+              if (state is SignInSuccess) {
+                showTwist(
+                    state: ToastStates.success,
+                    messege: AppStrings.signInSucessfully);
+                customNavigate(context, "/homeScreen");
 
-                SizedBox(
-                  width: 59.h,
+              }
+
+            else  if (state is SignInError) {
+                showTwist(
+                    state: ToastStates.error,
+                    messege: AppStrings.sinInFailed);
+              }
+            },
+            builder: (context, state) {
+              return Form(
+                key: BlocProvider.of<SignCubit>(context).signInKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Text(
+                        AppStrings.signIn,
+                        style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                              fontSize: 40.sp,
+                            ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    Text(
+                      AppStrings.signInToYourAccount,
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                    SizedBox(
+                      height: 100.h,
+                    ),
+                    CustomTextFormField(
+                      controller:
+                      BlocProvider.of<SignCubit>(context).signInEmailController,                      label: AppStrings.email,
+                      icon2: Icons.email,
+                      validate: (data) {
+                        if (data!.isEmpty ||
+                            !data.contains('@gmail.com')) {
+                          return AppStrings.pleaseEnterValidEmail
+                          ;
+                        }
+
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    CustomTextFormField(
+                      controller:
+                          BlocProvider.of<SignCubit>(context).signInPasswordController ,
+                      passwordIsVisable: BlocProvider.of<SignCubit>(context)
+                          .isLoginPasswordsShowing,
+                      label: AppStrings.password,
+                      validate: (data) {
+                        if (data!.length < 10 || data.isEmpty) {
+                          return AppStrings.pleaseEnterValidPassword;
+                        }
+
+                        return null;
+                      },
+                      icon: BlocProvider.of<SignCubit>(context).suffixIcon,
+                      suffixIconOnPressed: () {
+                        BlocProvider.of<SignCubit>(context)
+                            .changeLoginPasswordSuffixIcon();
+                      },
+                      icon2: Icons.lock,
+                    ),
+                    SizedBox(
+                      height: 9.h,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          AppStrings.rememberMe,
+                          style: Theme.of(context).textTheme.displaySmall,
+                        ),
+                        SizedBox(
+                          width: 75.w,
+                        ),
+                        Text(
+                          AppStrings.forgetPassword,
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall!
+                              .copyWith(decoration: TextDecoration.underline),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 87.h,
+                    ),
+                    SizedBox(
+                      height: 55.h,
+                      width: 330.w,
+                      child: state is SignInLoading
+                          ? CircularProgressIndicator(
+                              color: AppColors.primary,
+
+                            )
+                          : CustomButton(
+                              text: AppStrings.login,
+                              onPressed: () {
+                                context.read<SignCubit>().signIn();
+
+                                //customNavigate(context, "/signUpScreen");
+                                /*if (BlocProvider.of<SignCubit>(context)
+                                .signKey
+                                .currentState!
+                                .validate()) {
+                            BlocProvider.of<SignCubit>(context)
+                                .login();*/
+                              }),
+                    ),
+                    SizedBox(
+                      height: 41.h,
+                    ),
+                    const OtherMethodToSign(
+                      txt: AppStrings.orSignInWith,
+                    ),
+                    SizedBox(
+                      height: 42.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SvgPicture.asset(
+                          AppAssets.mail,
+                          width: 50,
+                          height: 45,
+                        ),
+                        SvgPicture.asset(
+                          AppAssets.facebook,
+                          width: 36.w,
+                          height: 38.h,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 50.h,
+                    ),
+                    const HaveAccount(
+                        txt: AppStrings.dontHaveAnAccount,
+                        txt2: AppStrings.signup),
+                  ],
                 ),
-                Container(
-                  height: 36,
-                  width: 38,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.facebook),
-                    color: AppColors.blue,
-                    iconSize: 36.0,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 50.h,
-            ),
-            HaveAccount(txt: AppStrings.dontHaveAnAccount,txt2: AppStrings.signup),
-          ],
+              );
+            },
+          ),
         ),
       ),
     );
@@ -154,30 +220,33 @@ class HaveAccount extends StatelessWidget {
 }
 
 class OtherMethodToSign extends StatelessWidget {
-   OtherMethodToSign({
-    super.key, required this.txt,
+  const OtherMethodToSign({
+    super.key,
+    required this.txt,
   });
-final String txt;
+
+  final String txt;
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Divider(
+        const Divider(
           color: AppColors.black, // Set the color of the line
           thickness: 2.0, // Set the thickness of the line
         ),
-        Text(AppStrings.space),
+        const Text(AppStrings.space),
         Text(
-         txt,
+          txt,
           style: Theme.of(context).textTheme.displaySmall,
         ),
-        Divider(
+        const Divider(
           color: AppColors.black, // Set the color of the line
           thickness: 2.0, // Set the thickness of the line
         ),
-        Text(AppStrings.space),
+        const Text(AppStrings.space),
       ],
     );
   }

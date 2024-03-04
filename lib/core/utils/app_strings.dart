@@ -23,8 +23,8 @@ class AppStrings {
   static const String detection = 'Detection';
   static const String interaction = 'Interaction';
 
-  static const String pillDetection2 = '''   Pill
-   Detection''';
+  static const String pillDetection2 = '''Pill
+  Detection''';
   static const String pillInteraction2 = '''  Pill 
   Interaction''';
   static const String pillDetection = 'Pill Detection';
@@ -33,7 +33,10 @@ class AppStrings {
   static const String viewBlogs = 'View Blogs';
   static const String blogsOfPills = 'Blogs of Pills';
   static const String signUp = 'Sign Up';
+  static const String profile  = 'Profile';
 
+  static const String gallery  = 'gallery';
+  static const String camera  = 'camera';
 
   //! home-
   static const String home  = 'Home';
@@ -70,7 +73,10 @@ class AppStrings {
 
 
   //!TO Future edit
-  static const String editProfile = 'editProfile';
+  static const String pleaseEnterValidEmail = 'please Enter Valid email';
+  static const String pleaseEnterValidName = 'please Enter Valid name';
+  static const String pleaseEnterValidPassword = 'please Enter Valid password';
+
   static const String onePill = '1st Pill';
   static const String twoPill = '2nd Pill';
   static const String logout = 'logout';
@@ -78,8 +84,11 @@ class AppStrings {
   static const String changePassword = 'changePassword';
   static const String ok = 'ok';
   static const String cancel = 'cancel';
-  static const String brandName = 'brandName';
-  static const String minimumCharge = 'minimumCharge';
+  static const String signInSucessfully = 'signInSucessfully';
+  static const String signUpSucessfully = 'signUpSucessfully';
+
+
+  static const String sinInFailed = 'sinInFailed';
   static const String location = 'location';
   static const String language = 'language';
 }

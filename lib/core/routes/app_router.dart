@@ -1,30 +1,43 @@
 import 'package:go_router/go_router.dart';
-import 'package:pill_detection/features/choose_service/enter_pill_image/screens/pill_interaction.dart';
+import 'package:pill_detection/features/auth/presentation/screens/sign_in/signin_screen.dart';
+import 'package:pill_detection/features/auth/presentation/screens/sign_up/singnup_screen.dart';
+import 'package:pill_detection/features/choose_option/home_screen.dart';
+import 'package:pill_detection/features/choose_option/screens/docage_checker_screen.dart';
+import 'package:pill_detection/features/choose_option/screens/dosage_checker.dart';
+import 'package:pill_detection/features/choose_option/screens/more_info.dart';
+import 'package:pill_detection/features/choose_option/screens/side_effect.dart';
+import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/inter_pill_image_scan.dart';
+import 'package:pill_detection/features/choose_service/screens_service/screens/pill_detection_service.dart';
+import 'package:pill_detection/features/choose_service/screens_service/screens/pill_interaction.dart';
 import 'package:pill_detection/features/profile/presentation/screens/profile_screen.dart';
 
-import '../../features/auth/presentation/screens/sign_in/signin_screen.dart';
-import '../../features/auth/presentation/screens/sign_up/singnup_screen.dart';
-import '../../features/choose_service/enter_pill_image/screens/docage_checker_screen.dart';
-import '../../features/choose_service/enter_pill_image/screens/dosage_checker.dart';
-import '../../features/choose_service/enter_pill_image/screens/more_info.dart';
-import '../../features/choose_service/enter_pill_image/screens/pill_detection_service.dart';
-import '../../features/choose_service/enter_pill_image/screens/side_effect.dart';
-import '../../features/choose_service/home_screen.dart';
-
 final GoRouter router = GoRouter(routes: [
-  GoRoute(path: "/", builder: (context, state) =>  ProfileScreen()),
-  GoRoute(path: "/signUpScreen", builder: (context, state) => const SignUpScreen()),
-  GoRoute(path: "/signInScreen", builder: (context, state) => const SignInScreen()),
-  GoRoute(path: "/dosageCheckerScreen", builder: (context, state) =>  DosageCheckerScreen()),
-  GoRoute(path: "/dosageChecker", builder: (context, state) => const DosageChecker()),
+  GoRoute(path: "/", builder: (context, state) => ProfileScreen()),
+  GoRoute(
+      path: "/InterPillImageScan",
+      builder: (context, state) => const InterPillImageScan()),
+  GoRoute(
+      path: "/signUpScreen", builder: (context, state) => const SignUpScreen()),
+  GoRoute(
+      path: "/signInScreen", builder: (context, state) => const SignInScreen()),
+  GoRoute(
+      path: "/dosageCheckerScreen",
+      builder: (context, state) => DosageCheckerScreen()),
+  GoRoute(
+      path: "/dosageChecker",
+      builder: (context, state) => const DosageChecker()),
   GoRoute(path: "/moreInfo", builder: (context, state) => const MoreInfo()),
-  GoRoute(path: "/pillDetectionService", builder: (context, state) =>  PillDetectionService()),
+  GoRoute(
+      path: "/pillDetectionService",
+      builder: (context, state) => PillDetectionService()),
   GoRoute(path: "/sideEffect", builder: (context, state) => const SideEffect()),
-  GoRoute(path: "/homeScreen", builder: (context, state) => const HomeScreen()),
-  GoRoute(path: "/pillInteraction", builder: (context, state) => const PillInteraction()),
-
-  GoRoute(path: "/profileScreen", builder: (context, state) => const ProfileScreen()),
-
+  GoRoute(path: "/homeScreen", builder: (context, state) => HomeScreen()),
+  GoRoute(
+      path: "/pillInteraction",
+      builder: (context, state) => const PillInteraction()),
+  GoRoute(
+      path: "/profileScreen",
+      builder: (context, state) => const ProfileScreen()),
 ]);
 
 /*

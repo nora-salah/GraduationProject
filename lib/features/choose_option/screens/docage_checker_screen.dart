@@ -6,8 +6,8 @@ import 'package:pill_detection/core/utils/app_colors.dart';
 import 'package:pill_detection/core/utils/navigate.dart';
 import 'package:pill_detection/core/widgets/custom_text_field.dart';
 
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/widgets/custom_button.dart';
+import '../../../core/utils/app_strings.dart';
+import '../../../core/widgets/custom_button.dart';
 
 class DosageCheckerScreen extends StatelessWidget {
    DosageCheckerScreen({Key? key}) : super(key: key);

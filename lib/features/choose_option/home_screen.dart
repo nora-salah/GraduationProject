@@ -28,8 +28,8 @@ class HomeScreen extends StatelessWidget {
                 color: AppColors.primaryLight,
               ),
             ),
-            const SizedBox(
-              height: 19,
+             SizedBox(
+              height: 19.h,
             ),
             CustomContainer(
               img: AppAssets.pi1,
