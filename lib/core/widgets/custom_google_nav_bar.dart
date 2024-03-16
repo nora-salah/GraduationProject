@@ -5,7 +5,10 @@ import '../utils/app_colors.dart';
 
 class CustomGNav extends StatelessWidget {
   const CustomGNav({
-    super.key, required this.currentIndex, this.onChanged, required this.tabs,
+    super.key,
+    required this.currentIndex,
+    this.onChanged,
+    required this.tabs,
   });
   final int currentIndex;
   final Function(int)? onChanged;
@@ -13,12 +16,12 @@ class CustomGNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       child: GNav(
-          selectedIndex: currentIndex ,
+          selectedIndex: currentIndex,
           activeColor: AppColors.primary,
           gap: 8,
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
           tabBorderRadius: 16,
           onTabChange: onChanged,
           tabBackgroundColor: AppColors.white,

@@ -1,12 +1,15 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-void customNavigate(context,String path){
+void customNavigate(context, String path) {
   GoRouter.of(context).push(path);
 }
 
-//
+void customNavigateReplacment(context, String path) {
+  GoRouter.of(context).pushReplacementNamed(path);
+}
+
+/*
 void navigateReplacment({
   required BuildContext context,
   required String route,
@@ -19,4 +22,4 @@ void navigateReplacment({
   );
 }
 
-
+*/

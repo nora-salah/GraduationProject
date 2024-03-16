@@ -101,11 +101,11 @@ class UnknownException extends ServerException {
 
     case DioExceptionType.cancel:
       throw CancelException(
-          ErrorModel(errorMessage: e.toString(), status: 500));
+          ErrorModel(errorMessage: e.toString()));
 
     case DioExceptionType.unknown:
       throw UnknownException(
-          ErrorModel(errorMessage: e.toString(), status: 500));
+          ErrorModel(errorMessage: e.toString(),));
   // throw ServerException('badResponse');
   }
 }

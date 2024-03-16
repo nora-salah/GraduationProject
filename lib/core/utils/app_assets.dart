@@ -6,6 +6,7 @@ class AppAssets{
   static const String pi3= '${basePath}pi3.png';
   static const String drug= '${basePath}drug.png';
   static const String pillss= '${basePath}pillss.png';
+  static const String pf= '${basePath}pf.png';
 
   static const String pills= '${basePath}pill.png';
   static const String email= '${basePath}email.png';

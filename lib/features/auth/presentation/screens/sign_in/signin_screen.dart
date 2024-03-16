@@ -31,13 +31,9 @@ class SignInScreen extends StatelessWidget {
                     state: ToastStates.success,
                     messege: AppStrings.signInSucessfully);
                 customNavigate(context, "/homeScreen");
-
-              }
-
-            else  if (state is SignInError) {
+              } else if (state is SignInError) {
                 showTwist(
-                    state: ToastStates.error,
-                    messege: AppStrings.sinInFailed);
+                    state: ToastStates.error, messege: AppStrings.sinInFailed);
               }
             },
             builder: (context, state) {
@@ -50,9 +46,10 @@ class SignInScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 20),
                       child: Text(
                         AppStrings.signIn,
-                        style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                              fontSize: 40.sp,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.displayLarge!.copyWith(
+                                  fontSize: 40.sp,
+                                ),
                       ),
                     ),
                     SizedBox(
@@ -66,14 +63,13 @@ class SignInScreen extends StatelessWidget {
                       height: 100.h,
                     ),
                     CustomTextFormField(
-                      controller:
-                      BlocProvider.of<SignCubit>(context).signInEmailController,                      label: AppStrings.email,
+                      controller: BlocProvider.of<SignCubit>(context)
+                          .signInEmailController,
+                      label: AppStrings.email,
                       icon2: Icons.email,
                       validate: (data) {
-                        if (data!.isEmpty ||
-                            !data.contains('@gmail.com')) {
-                          return AppStrings.pleaseEnterValidEmail
-                          ;
+                        if (data!.isEmpty || !data.contains('@gmail.com')) {
+                          return AppStrings.pleaseEnterValidEmail;
                         }
 
                         return null;
@@ -83,8 +79,8 @@ class SignInScreen extends StatelessWidget {
                       height: 30,
                     ),
                     CustomTextFormField(
-                      controller:
-                          BlocProvider.of<SignCubit>(context).signInPasswordController ,
+                      controller: BlocProvider.of<SignCubit>(context)
+                          .signInPasswordController,
                       passwordIsVisable: BlocProvider.of<SignCubit>(context)
                           .isLoginPasswordsShowing,
                       label: AppStrings.password,
@@ -126,28 +122,27 @@ class SignInScreen extends StatelessWidget {
                     SizedBox(
                       height: 87.h,
                     ),
-                    SizedBox(
-                      height: 55.h,
-                      width: 330.w,
-                      child: state is SignInLoading
-                          ? CircularProgressIndicator(
-                              color: AppColors.primary,
+                    state is SignInLoading
+                        ? CircularProgressIndicator(
+                            color: AppColors.primary,
+                          )
+                        : SizedBox(
+                            height: 55.h,
+                            width: 330.w,
+                            child: CustomButton(
+                                text: AppStrings.login,
+                                onPressed: () {
+                                  context.read<SignCubit>().signIn();
 
-                            )
-                          : CustomButton(
-                              text: AppStrings.login,
-                              onPressed: () {
-                                context.read<SignCubit>().signIn();
-
-                                //customNavigate(context, "/signUpScreen");
-                                /*if (BlocProvider.of<SignCubit>(context)
+                                  //customNavigate(context, "/signUpScreen");
+                                  /*if (BlocProvider.of<SignCubit>(context)
                                 .signKey
                                 .currentState!
                                 .validate()) {
                             BlocProvider.of<SignCubit>(context)
                                 .login();*/
-                              }),
-                    ),
+                                }),
+                          ),
                     SizedBox(
                       height: 41.h,
                     ),
@@ -176,9 +171,13 @@ class SignInScreen extends StatelessWidget {
                     SizedBox(
                       height: 50.h,
                     ),
-                    const HaveAccount(
-                        txt: AppStrings.dontHaveAnAccount,
-                        txt2: AppStrings.signup),
+                    HaveAccount(
+                      txt: AppStrings.dontHaveAnAccount,
+                      txt2: AppStrings.signup,
+                      onPressed: () {
+                        customNavigate(context, "/signUpScreen");
+                      },
+                    ),
                   ],
                 ),
               );
@@ -192,10 +191,14 @@ class SignInScreen extends StatelessWidget {
 
 class HaveAccount extends StatelessWidget {
   const HaveAccount({
-    super.key, required this.txt, required this.txt2,
+    super.key,
+    required this.txt,
+    required this.txt2,
+    required this.onPressed,
   });
   final String txt;
   final String txt2;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -210,10 +213,12 @@ class HaveAccount extends StatelessWidget {
               ),
         ),
         CustomTextButton(
-            text: txt2,
-            onPressed: () {
+          text: txt2,
+          onPressed: onPressed,
+          /*() {
               customNavigate(context, "/signUpScreen");
-            }),
+            }*/
+        ),
       ],
     );
   }

@@ -4,6 +4,9 @@ import 'package:pill_detection/core/utils/app_assets.dart';
 import 'package:pill_detection/core/utils/app_colors.dart';
 import 'package:pill_detection/core/utils/app_strings.dart';
 
+import '../../../core/utils/navigate.dart';
+import '../../../core/widgets/custom_go_back.dart';
+
 class SideEffect extends StatelessWidget {
   const SideEffect({Key? key}) : super(key: key);
 
@@ -14,9 +17,20 @@ class SideEffect extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 40.h,
+          ),
+          CustomGoBack(onPressed: () {
+            customNavigate(context, "/pillDetectionService");
+          }),
+          SizedBox(
+            height: 26.h,
+          ),
           CustomPillImage(),
-
-          CustomPillService(text1:AppStrings.sideEffect, text2: AppStrings.pillName,),
+          const CustomPillService(
+            text1: AppStrings.sideEffect,
+            text2: AppStrings.pillName,
+          ),
         ],
       ),
     );
@@ -25,7 +39,9 @@ class SideEffect extends StatelessWidget {
 
 class CustomPillService extends StatelessWidget {
   const CustomPillService({
-    super.key, this.text1, this.text2,
+    super.key,
+    this.text1,
+    this.text2,
   });
   final String? text1;
   final String? text2;
@@ -38,7 +54,7 @@ class CustomPillService extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-           //
+            //
             text1!,
             style: Theme.of(context).textTheme.displayLarge,
           ),
@@ -46,7 +62,7 @@ class CustomPillService extends StatelessWidget {
             height: 2.h,
           ),
           Text(
-           //
+            //
             text2!,
             style: Theme.of(context).textTheme.displaySmall,
           ),
@@ -71,8 +87,8 @@ class CustomPillImage extends StatelessWidget {
           boxShadow: const [
             BoxShadow(
               color: AppColors.grey,
-              offset: Offset(0, 9), // Set the offset
-              blurRadius: 6, // Set the blur radius
+              offset: Offset(0, 7), // Set the offset
+              blurRadius: 5, // Set the blur radius
               spreadRadius: 1, // Set the spread radius
             ),
           ],

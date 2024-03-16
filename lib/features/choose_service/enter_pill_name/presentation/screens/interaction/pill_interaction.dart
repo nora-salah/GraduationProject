@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pill_detection/core/utils/app_assets.dart';
 import 'package:pill_detection/core/widgets/custom_button.dart';
 import 'package:pill_detection/core/widgets/custom_icon_button.dart';
 import 'package:pill_detection/core/widgets/custom_text_field.dart';
 
-import '../../../../core/utils/app_strings.dart';
+import '../../../../../../core/utils/app_strings.dart';
+import '../../../../../../core/utils/navigate.dart';
 
 class PillInteraction extends StatelessWidget {
   const PillInteraction({Key? key}) : super(key: key);
@@ -31,35 +35,35 @@ class PillInteraction extends StatelessWidget {
               AppStrings.enterNameOfTwoTypes,
               style: Theme.of(context).textTheme.displaySmall,
             ),
-             SizedBox(
+            SizedBox(
               height: 91.h,
             ),
             CustomTextFormField(
               controller: TextEditingController(),
               hint: AppStrings.onePill,
-
+              icon2: (FontAwesomeIcons.capsules),
             ),
-             SizedBox(
+            SizedBox(
               height: 30.h,
             ),
             CustomTextFormField(
               controller: TextEditingController(),
               hint: AppStrings.twoPill,
-              pill: Container(
-                width: 22.w,
-                height: 22.h,
-                child: Image(image: AssetImage(AppAssets.pills)),
-              ),
+              icon2: (FontAwesomeIcons.capsules),
             ),
-             SizedBox(
+            SizedBox(
               height: 45.h,
             ),
             Center(
               child: SizedBox(
                 height: 55.h,
                 width: 330.w,
-                child:
-              CustomButton(text: AppStrings.next, onPressed: (){}),),
+                child: CustomButton(
+                    text: AppStrings.next,
+                    onPressed: () {
+                      customNavigate(context, "/pillInteractionRes");
+                    }),
+              ),
             ),
           ],
         ),

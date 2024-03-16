@@ -9,12 +9,14 @@ class CustomContainer extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
+    required this.btnText,
     required this.img,
     this.text2,
   });
   final String text;
   final String img;
   final String? text2;
+  final String btnText;
 
   final VoidCallback onPressed;
 
@@ -42,7 +44,8 @@ class CustomContainer extends StatelessWidget {
             backgroundImage: AssetImage(img),
             radius: 90,
           ),
-           ///  Image.asset(img,width: 230.w,height: 500.h,),
+
+          ///  Image.asset(img,width: 230.w,height: 500.h,),
           Padding(
             padding: const EdgeInsets.only(
               top: 20.0,
@@ -59,7 +62,6 @@ class CustomContainer extends StatelessWidget {
                   text2!,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
-
                 SizedBox(
                   height: 24.h,
                 ),
@@ -69,7 +71,7 @@ class CustomContainer extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: onPressed,
                     child: Text(
-                      AppStrings.start,
+                      btnText,
                       style: Theme.of(context)
                           .textTheme
                           .displayMedium!
@@ -85,7 +87,6 @@ class CustomContainer extends StatelessWidget {
     );
   }
 }
-
 
 class CustomContainer1 extends StatelessWidget {
   const CustomContainer1({
@@ -125,6 +126,7 @@ class CustomContainer1 extends StatelessWidget {
             backgroundImage: AssetImage(img),
             radius: 90,
           ),
+
           ///  Image.asset(img,width: 230.w,height: 500.h,),
           Padding(
             padding: const EdgeInsets.only(
@@ -145,7 +147,6 @@ class CustomContainer1 extends StatelessWidget {
                     text2!,
                     style: Theme.of(context).textTheme.displaySmall,
                   ),
-
                   SizedBox(
                     height: 24.h,
                   ),
@@ -165,6 +166,84 @@ class CustomContainer1 extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomContainerBlog extends StatelessWidget {
+  const CustomContainerBlog({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    required this.btnText,
+    required this.img,
+  });
+  final String text;
+  final String img;
+  final String btnText;
+
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 375.w,
+      height: 160.h,
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.primary,
+            offset: Offset(0, 2), // Set the offset
+            blurRadius: 3, // Set the blur radius
+            spreadRadius: 1, // Set the spread radius
+          ),
+        ],
+        borderRadius: BorderRadius.circular(70),
+      ),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundColor: AppColors.white,
+            backgroundImage: AssetImage(img),
+            radius: 90,
+          ),
+
+          ///  Image.asset(img,width: 230.w,height: 500.h,),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 20.0,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  text,
+                  style: Theme.of(context).textTheme.displayMedium,
+                ),
+                SizedBox(
+                  height: 24.h,
+                ),
+                Container(
+                  width: 120.w,
+                  height: 32.h,
+                  child: ElevatedButton(
+                    onPressed: onPressed,
+                    child: Text(
+                      btnText,
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayMedium!
+                          .copyWith(fontSize: 24),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

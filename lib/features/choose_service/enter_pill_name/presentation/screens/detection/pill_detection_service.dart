@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pill_detection/core/utils/app_colors.dart';
 import 'package:pill_detection/core/utils/app_strings.dart';
+import 'package:pill_detection/core/widgets/custom_go_back.dart';
+
+import '../../../../../../core/utils/navigate.dart';
 
 class PillDetectionService extends StatelessWidget {
   PillDetectionService({Key? key}) : super(key: key);
@@ -15,6 +18,12 @@ class PillDetectionService extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            CustomGoBack(onPressed: () {
+              customNavigate(context, "/homeScreen");
+            }),
+            SizedBox(
+              height: 26.h,
+            ),
             Container(
               height: 291.h,
               width: 345.w,
@@ -53,7 +62,7 @@ class PillDetectionService extends StatelessWidget {
               style: Theme.of(context).textTheme.displaySmall,
             ),
             SizedBox(
-              height: 110,
+              height: 110.h,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -61,21 +70,27 @@ class PillDetectionService extends StatelessWidget {
                 children: [
                   CustomService(
                     text: AppStrings.morePillInfo2,
-                    onPressed: () {},
+                    onPressed: () {
+                      customNavigate(context, "/moreInfo");
+                    },
                   ),
                   SizedBox(
-                    width: 16,
+                    width: 16.w,
                   ),
                   CustomService(
                     text: AppStrings.sideEffect2,
-                    onPressed: () {},
+                    onPressed: () {
+                      customNavigate(context, "/sideEffect");
+                    },
                   ),
                   SizedBox(
-                    width: 16,
+                    width: 16.w,
                   ),
                   CustomService(
                     text: AppStrings.dosageChecker,
-                    onPressed: () {},
+                    onPressed: () {
+                      customNavigate(context, "/dosageChecker");
+                    },
                   ),
                 ],
               ),
@@ -111,8 +126,10 @@ class CustomService extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style:
-                Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 26),
+            style: Theme.of(context)
+                .textTheme
+                .displayMedium!
+                .copyWith(fontSize: 26),
           ),
         ),
       ),

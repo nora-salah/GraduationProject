@@ -22,9 +22,9 @@ class InterPillImageScan extends StatelessWidget {
                 width: 444.w,
                 foregroundDecoration: BoxDecoration(
                   color: AppColors.black.withOpacity(0.6),
-                  borderRadius: BorderRadius.only(bottomRight: Radius.circular(30),bottomLeft: Radius.circular(30),),
+                  borderRadius: const BorderRadius.only(bottomRight: Radius.circular(30),bottomLeft: Radius.circular(30),),
                 ),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(bottomRight: Radius.circular(30),bottomLeft: Radius.circular(30),),
                     image: DecorationImage(
                       image: AssetImage(
@@ -77,7 +77,7 @@ class InterPillImageScan extends StatelessWidget {
                             );*/
                               });
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.camera_alt,
                           size: 100,
                           color: AppColors.white,
@@ -117,7 +117,7 @@ class InterPillImageScan extends StatelessWidget {
 
             ],
           ),
-          Column(children: [
+          const Column(children: [
 
           ],)
           /*CustomImages(

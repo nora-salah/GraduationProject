@@ -172,11 +172,15 @@ class SignUpScreen extends StatelessWidget {
                   SizedBox(
                     height: 26.h,
                   ),
-                  const HaveAccount(
-                      txt: AppStrings.alreadyHaveAccount,
-                      txt2: AppStrings.signin),
-                  const SizedBox(
-                    height: 10,
+                  HaveAccount(
+                    txt: AppStrings.alreadyHaveAccount,
+                    txt2: AppStrings.signin,
+                    onPressed: () {
+                      customNavigate(context, "/signInScreen");
+                    },
+                  ),
+                  SizedBox(
+                    height: 10.h,
                   ),
                 ],
               ),

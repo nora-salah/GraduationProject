@@ -9,6 +9,7 @@ class DioConsumer extends ApiConsumer {
 
   DioConsumer(this.dio) {
     dio.options.baseUrl = EndPoint.baseUrl;
+
     dio.interceptors.add(ApiInterceptors());
     dio.interceptors.add(LogInterceptor(
         request: true,
@@ -39,8 +40,11 @@ class DioConsumer extends ApiConsumer {
 
   @override
   Future get(String path,
-      {Object? data, Map<String, dynamic>? queryParameters}) async {
+      {Object? data,
+      Map<String, dynamic>? queryParameters,
+      String? token}) async {
     try {
+      //dio.options.headers={Apikeys.token:token,};
       final response = await dio.get(
         path,
         data: data,
