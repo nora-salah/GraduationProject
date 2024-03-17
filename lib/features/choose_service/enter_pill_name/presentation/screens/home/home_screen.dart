@@ -9,19 +9,19 @@ import '../../../../../choose_option/cubits/home_state.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
-  int currenIndex = 0;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
       return Scaffold(
           body: BlocProvider.of<HomeCubit>(context)
-              .screens[BlocProvider.of<HomeCubit>(context).currenIndex],
+              .screens[BlocProvider.of<HomeCubit>(context).currentIndex],
           bottomNavigationBar: CustomGNav(
             onChanged: (value) {
               BlocProvider.of<HomeCubit>(context).changeIndex(value);
             },
-            currentIndex: BlocProvider.of<HomeCubit>(context).currenIndex,
+            currentIndex: BlocProvider.of<HomeCubit>(context).currentIndex,
             tabs: [
               GButton(
                 icon: Icons.home,

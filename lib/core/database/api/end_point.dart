@@ -8,6 +8,9 @@ class EndPoint {
   static const String profile = "profile";
   static const String userPhoto = "userphoto";
   static const String userPersonalInformation = "userpersonalinformation";
+  static const String getAllBlogs = "blog/index";
+  //static const String userPersonalInformation = "userpersonalinformation";
+  // static const String userPersonalInformation = "userpersonalinformation";
 
   static String getUserDataEndPoint(token) {
     return '$profile';
@@ -19,6 +22,9 @@ class Apikeys {
   static const String id = 'id';
   static const String username = 'username';
   static const String phone = 'phone';
+  static const String title = 'title';
+  static const String content = 'content';
+  static const String reference = 'reference';
 
   static const String accept = 'Accept';
   static const String success = 'success';

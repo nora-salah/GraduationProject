@@ -8,9 +8,9 @@ import 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
   List<Widget> screens = [Home(), ProfileScreen()];
-  int currenIndex = 0;
+  int currentIndex = 0;
   void changeIndex(index) {
-    currenIndex = index;
+    currentIndex = index;
     emit(CurrenIndexState());
   }
 }

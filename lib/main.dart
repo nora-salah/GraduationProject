@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pill_detection/features/auth/presentation/cubit/bloc_observer.dart';
 import 'package:pill_detection/features/auth/presentation/cubit/sign_cubit.dart';
+import 'package:pill_detection/features/choose_option/cubits/blog_cubit/blogs_cubit.dart';
 import 'package:pill_detection/features/profile/presentation/profile_cubit/profile_cubit.dart';
 
 import 'app/app.dart';
@@ -29,6 +30,9 @@ void main() async {
       ),
       BlocProvider(
         create: (context) => sl<ProfileCubit>()..getUserProfile(),
+      ),
+      BlocProvider(
+        create: (context) => sl<BlogsCubit>()..getAllBlogs(),
       ),
     ],
     child: const MyApp(),

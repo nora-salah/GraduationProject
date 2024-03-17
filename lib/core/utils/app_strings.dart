@@ -4,6 +4,7 @@ class AppStrings {
   static const String signin = 'Signin';
   static const String editProfile = 'Edit Profile';
   static const String showBlog = 'Show';
+  static const String filed = 'filed';
 
   static const String signup = 'Signup';
   static const String signInToYourAccount = 'Sign In To Your Account';

@@ -58,7 +58,7 @@ class Home extends StatelessWidget {
               text2: AppStrings.blogsOfPills,
               img: AppAssets.pi3,
               onPressed: () {
-                customNavigate(context, "/homeScreen");
+                customNavigate(context, "/Blogs");
               },
             ),
           ],

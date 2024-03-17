@@ -207,16 +207,18 @@ class CustomContainerBlog extends StatelessWidget {
       ),
       child: Row(
         children: [
-          CircleAvatar(
+          /*CircleAvatar(
             backgroundColor: AppColors.white,
             backgroundImage: AssetImage(img),
             radius: 90,
-          ),
-
-          ///  Image.asset(img,width: 230.w,height: 500.h,),
+          ),*/
+          Expanded(
+              child: Image.network(
+            img,
+          )),
           Padding(
             padding: const EdgeInsets.only(
-              top: 20.0,
+              top: 5.0,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -224,7 +226,10 @@ class CustomContainerBlog extends StatelessWidget {
               children: [
                 Text(
                   text,
-                  style: Theme.of(context).textTheme.displayMedium,
+                  style: Theme.of(context)
+                      .textTheme
+                      .displayMedium!
+                      .copyWith(overflow: TextOverflow.ellipsis),
                 ),
                 SizedBox(
                   height: 24.h,

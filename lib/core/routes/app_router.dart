@@ -15,12 +15,15 @@ import 'package:pill_detection/features/profile/presentation/screens/my_profile.
 import 'package:pill_detection/features/profile/presentation/screens/profile_screen.dart';
 
 import '../../features/choose_option/screens/blogs/blogs.dart';
+import '../../features/choose_option/screens/blogs/spacific_blog.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/home/home.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_result.dart';
 
 final GoRouter router = GoRouter(routes: [
-  GoRoute(path: "/", builder: (context, state) => const Blogs()),
+  GoRoute(path: "/", builder: (context, state) => const SplashScreen()),
   GoRoute(path: "/blogs", builder: (context, state) => const Blogs()),
+  GoRoute(
+      path: "/specificBlog", builder: (context, state) => const SpecificBlog()),
   GoRoute(
       path: "/InterPillImageScan",
       builder: (context, state) => const InterPillImageScan()),
