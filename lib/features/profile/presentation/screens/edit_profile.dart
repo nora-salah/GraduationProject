@@ -5,6 +5,7 @@ import 'package:pill_detection/core/utils/app_colors.dart';
 import 'package:pill_detection/core/utils/app_strings.dart';
 import 'package:pill_detection/core/utils/navigate.dart';
 import 'package:pill_detection/core/widgets/custom_button.dart';
+import 'package:pill_detection/core/widgets/custom_go_back.dart';
 import 'package:pill_detection/core/widgets/custom_text_field.dart';
 import 'package:pill_detection/core/widgets/custom_toast.dart';
 import 'package:pill_detection/features/profile/presentation/profile_cubit/profile_cubit.dart';
@@ -39,19 +40,9 @@ class EditProfileScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.arrow_back_ios_outlined,
-                        size: 30,
-                      ),
-                      Icon(
-                        Icons.more_vert,
-                        size: 35,
-                      ),
-                    ],
-                  ),
+                  CustomGoBack(onPressed: () {
+                    customNavigate(context, "/homeScreen");
+                  }),
                   SizedBox(
                     height: 11.h,
                   ),

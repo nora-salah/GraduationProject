@@ -63,7 +63,7 @@ class Blogs extends StatelessWidget {
               height: 19.h,
             ),
             state is GetAllBlogsLoading
-                ? CircularProgressIndicator(
+                ? const CircularProgressIndicator(
                     color: AppColors.primary,
                   )
                 : ListView.builder(
@@ -80,6 +80,9 @@ class Blogs extends StatelessWidget {
     );
   }
 }
+/*showBlog(
+                          model: BlocProvider.of<BlogsCubit>(context)
+                              .blogs[index])*/
 
 Widget showBlog({required BlogModel model}) {
   return Column(

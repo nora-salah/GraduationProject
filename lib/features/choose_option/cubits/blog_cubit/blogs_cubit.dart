@@ -38,7 +38,7 @@ import '../../../../models/blog_model.dart';
 import '../../../../repositories/blog_repo.dart';
 
 class BlogsCubit extends Cubit<BlogsState> {
-  BlogsCubit() : super(BlogsInitial());
+  BlogsCubit(this.blogRepo) : super(BlogsInitial());
   TextEditingController searchController = TextEditingController();
 
   BlogRepo? blogRepo;
@@ -52,9 +52,32 @@ class BlogsCubit extends Cubit<BlogsState> {
         emit(GetAllBlogsFailure(errorMessage: errMessage));
       },
       (blogModel) {
-        blogs.add(blogModel);
+        var responseBody = jsonDecode(response as String);
+
+        for (var item in responseBody) {
+          blogs.add(BlogModel.fromJson(item));
+        }
+        //blogs.add(blogModel);
         emit(GetAllBlogsSuccess());
       },
     );
   }
 }
+
+/* var responseBody = jsonDecode(response[blogs]);
+      for (var item in responseBody) {
+        blogs.add(BlogModel.fromJson(item));
+      }*/
+/*  Future<Either<String, BlogModel>> getAllBlogs() async {
+    try {
+      final response = await api.get(EndPoint.getAllBlogs);
+      var responseBody = jsonDecode(response[blogs]);
+      for (var item in responseBody) {
+        blogs.add(BlogModel.fromJson(item));
+      }
+      return Right(BlogModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.errorMessage);
+    }
+  }
+*/

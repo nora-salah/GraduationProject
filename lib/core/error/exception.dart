@@ -1,8 +1,5 @@
-
-
 import 'package:dio/dio.dart';
 import 'package:pill_detection/core/error/error_model.dart';
-
 
 class ServerException implements Exception {
   final ErrorModel errorModel;
@@ -12,54 +9,53 @@ class ServerException implements Exception {
 
 class BadCertificateException extends ServerException {
   BadCertificateException(super.errorModel);
-
 }
+
 class ConnectionTimeoutException extends ServerException {
   ConnectionTimeoutException(super.errorModel);
-
 }
+
 class BadResponseException extends ServerException {
   BadResponseException(super.errorModel);
-
 }
+
 class ReceiveTimeoutException extends ServerException {
   ReceiveTimeoutException(super.errorModel);
-
 }
+
 class ConnectionErrorException extends ServerException {
   ConnectionErrorException(super.errorModel);
-
 }
+
 class SendTimeoutException extends ServerException {
   SendTimeoutException(super.errorModel);
-
 }
+
 class UnauthorizedException extends ServerException {
   UnauthorizedException(super.errorModel);
-
 }
+
 class ForbiddenException extends ServerException {
   ForbiddenException(super.errorModel);
-
 }
+
 class NotFoundException extends ServerException {
   NotFoundException(super.errorModel);
-
 }
+
 class CofficientException extends ServerException {
   CofficientException(super.errorModel);
-
 }
+
 class CancelException extends ServerException {
   CancelException(super.errorModel);
-
 }
+
 class UnknownException extends ServerException {
   UnknownException(super.errorModel);
-
 }
 
- void handleDioException(DioException e) {
+void handleDioException(DioException e) {
   switch (e.type) {
     case DioExceptionType.connectionError:
       throw ConnectionErrorException(ErrorModel.fromJson(e.response!.data));
@@ -73,7 +69,7 @@ class UnknownException extends ServerException {
 
     case DioExceptionType.sendTimeout:
       throw SendTimeoutException(ErrorModel.fromJson(e.response!.data));
-  // throw ServerException('connection Error');
+    // throw ServerException('connection Error');
 
     case DioExceptionType.badResponse:
       switch (e.response?.statusCode) {
@@ -91,7 +87,7 @@ class UnknownException extends ServerException {
           throw NotFoundException(ErrorModel.fromJson(e.response!.data));
 
         case 409: //cofficient
-        // throw ServerException('badResponse');
+          // throw ServerException('badResponse');
           throw CofficientException(ErrorModel.fromJson(e.response!.data));
 
         case 504: // Bad request
@@ -101,11 +97,11 @@ class UnknownException extends ServerException {
 
     case DioExceptionType.cancel:
       throw CancelException(
-          ErrorModel(errorMessage: e.toString()));
+          ErrorModel(errorMessage: e.toString(), status: e.hashCode));
 
     case DioExceptionType.unknown:
       throw UnknownException(
-          ErrorModel(errorMessage: e.toString(),));
-  // throw ServerException('badResponse');
+          ErrorModel(errorMessage: e.toString(), status: e.hashCode));
+    // throw ServerException('badResponse');
   }
 }

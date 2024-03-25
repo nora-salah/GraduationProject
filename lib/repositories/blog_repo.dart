@@ -39,15 +39,11 @@ class BlogRepo {
   final ApiConsumer api;
 
   BlogRepo({required this.api});
-  List<BlogModel> blogs = [];
 
   Future<Either<String, BlogModel>> getAllBlogs() async {
     try {
       final response = await api.get(EndPoint.getAllBlogs);
-      var responseBody = jsonDecode(response);
-      for (var item in responseBody) {
-        blogs.add(BlogModel.fromJson(item));
-      }
+
       return Right(BlogModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.errorMessage);

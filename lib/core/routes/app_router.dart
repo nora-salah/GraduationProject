@@ -20,10 +20,9 @@ import '../../features/choose_service/enter_pill_name/presentation/screens/home/
 import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_result.dart';
 
 final GoRouter router = GoRouter(routes: [
-  GoRoute(path: "/", builder: (context, state) => const SplashScreen()),
+  GoRoute(path: "/", builder: (context, state) => SpecificBlog()),
   GoRoute(path: "/blogs", builder: (context, state) => const Blogs()),
-  GoRoute(
-      path: "/specificBlog", builder: (context, state) => const SpecificBlog()),
+  GoRoute(path: "/specificBlog", builder: (context, state) => SpecificBlog()),
   GoRoute(
       path: "/InterPillImageScan",
       builder: (context, state) => const InterPillImageScan()),

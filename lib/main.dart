@@ -23,9 +23,6 @@ void main() async {
         create: (context) => sl<SignCubit>(),
       ),
       BlocProvider(
-        create: (context) => sl<ProfileCubit>(),
-      ),
-      BlocProvider(
         create: (context) => sl<HomeCubit>(),
       ),
       BlocProvider(

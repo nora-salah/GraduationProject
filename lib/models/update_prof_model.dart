@@ -6,11 +6,6 @@ class UpdateProfileModel {
   final String password;
   final String name;
   final String profilePic;
-  final String id;
-  final String updated;
-  final String vEmail;
-  final String created;
-  final String phone;
 
 //  final String confirm_password;
 
@@ -19,11 +14,6 @@ class UpdateProfileModel {
     required this.email,
     required this.password,
     required this.name,
-    required this.phone,
-    required this.id,
-    required this.created,
-    required this.updated,
-    required this.vEmail,
     required this.profilePic,
   });
 
@@ -34,11 +24,6 @@ class UpdateProfileModel {
       email: jsonData['user'][Apikeys.email],
       password: jsonData['user'][Apikeys.password],
       name: jsonData['user'][Apikeys.name],
-      phone: jsonData['user'][Apikeys.phone],
-      id: jsonData['user'][Apikeys.id],
-      created: jsonData['user'][Apikeys.created],
-      updated: jsonData['user'][Apikeys.updated],
-      vEmail: jsonData['user'][Apikeys.vEmail],
     );
   }
 }

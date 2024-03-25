@@ -10,9 +10,7 @@ import 'package:pill_detection/models/update_prof_model.dart';
 
 class ProfileRepository {
   final ApiConsumer api;
-
   ProfileRepository({required this.api});
-
   Future<Either<String, dynamic>> updateProfile({
     required String name,
     required String password,
@@ -35,7 +33,7 @@ class ProfileRepository {
       final user = UpdateProfileModel.fromJson(response);
       // final user=UpdateProfileModel.fromJson(response);
       //token deleted
-      CacheHelper().saveData(key: Apikeys.Authorization, value: user.message);
+      //  CacheHelper().saveData(key: Apikeys.Authorization, value: user.message);
 
       return Right(user);
     } on ServerException catch (error) {

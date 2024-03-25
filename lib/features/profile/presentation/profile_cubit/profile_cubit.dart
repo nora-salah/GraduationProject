@@ -39,14 +39,15 @@ class ProfileCubit extends Cubit<ProfileState> {
           confirmPassword: confirmPasswordController.text,
           email: emailController.text,
           profilePic: profilePic!);
-
-      result.fold(
-        (l) => (errorMessage) =>
-            emit(UpdateProfileErroringState(errorMessage: errorMessage)),
-        (r) => (updateProfile) => emit(UpdateProfileSuccessState()),
-      );
+      emit(UpdateProfileSuccessState());
+      //result.fold(
+      /*(errorMessage) =>
+          emit(UpdateProfileErroringState(errorMessage: errorMessage));
+      (updateProfile) => emit(UpdateProfileSuccessState());*/
+      // );
     } catch (e) {
-      (updateProfile) => emit(UpdateProfileSuccessState());
+      (updateProfile) =>
+          emit(UpdateProfileErroringState(errorMessage: e.toString()));
     }
   }
 
