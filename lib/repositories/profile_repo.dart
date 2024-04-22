@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pill_detection/core/database/api/api_consumer.dart';
 import 'package:pill_detection/core/database/api/end_point.dart';
-import 'package:pill_detection/core/database/cache/cache_helper.dart';
 import 'package:pill_detection/core/error/exception.dart';
 import 'package:pill_detection/function/upload_image_to_api.dart';
 import 'package:pill_detection/models/profile_model.dart';
@@ -50,30 +49,3 @@ class ProfileRepository {
     }
   }
 }
-/*    final response = await updateRepo.getUserProfile(profilePic: profilePic!);
-*/
-/* Future<Either<String, ProfileModel>> getUserProfile({
-    required XFile profilePic,
-  }) async {
-    try {
-      final String? authorization =
-          CacheHelper().getData(key: Apikeys.Authorization);
-
-      final response = await api.get(EndPoint.profile,
-
-          // token: CacheHelper().getData(key: Apikeys.token),
-          data: {
-            Apikeys.profilePic: await uploadImageToAPI(profilePic),
-          },
-          queryParameters: {
-            Apikeys.Authorization: authorization
-          });
-      print(" authorization:$authorization");
-
-      final profileModel = ProfileModel.fromJson(response);
-      print(" this is authorization:$authorization");
-      return Right(profileModel);
-    } on ServerException catch (e) {
-      return Left(e.errorModel.errorMessage);
-    }
-  }*/

@@ -63,7 +63,9 @@ class ProfileScreen extends StatelessWidget {
             Row(
               children: [
                 CustomButtonIcon(
-                  onPressed: () {},
+                  onPressed: () {
+                    customNavigate(context, "/myProfileScreen");
+                  },
                   icon: const Icon(Icons.person_outline),
                 ),
                 SizedBox(

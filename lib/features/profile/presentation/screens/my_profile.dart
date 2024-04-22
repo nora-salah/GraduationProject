@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pill_detection/core/utils/app_colors.dart';
+import 'package:pill_detection/core/widgets/custom_go_back.dart';
 import 'package:pill_detection/core/widgets/custom_toast.dart';
 import 'package:pill_detection/features/profile/presentation/profile_cubit/profile_cubit.dart';
 import 'package:pill_detection/features/profile/presentation/profile_cubit/profile_state.dart';
+
+import '../../../../core/utils/navigate.dart';
 
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({super.key});
@@ -28,19 +31,9 @@ class MyProfileScreen extends StatelessWidget {
                 : state is GetUserSuccess
                     ? ListView(
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                Icons.arrow_back_ios_outlined,
-                                size: 30,
-                              ),
-                              Icon(
-                                Icons.more_vert,
-                                size: 35,
-                              ),
-                            ],
-                          ),
+                          CustomGoBack(onPressed: () {
+                            customNavigate(context, "/profileScreen");
+                          }),
 
                           SizedBox(height: 40.h),
                           //! Profile Picture
@@ -94,9 +87,9 @@ class MyProfileScreen extends StatelessWidget {
 
                           //! Phone number
                           ListTile(
-                            title: Text(state.user.phone),
+                            title: Text(state.user.password),
                             leading: Icon(
-                              Icons.phone,
+                              Icons.lock,
                               color: AppColors.primary,
                             ),
                           ),

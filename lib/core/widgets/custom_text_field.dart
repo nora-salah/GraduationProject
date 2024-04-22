@@ -74,6 +74,7 @@ class CustomTextFormField2 extends StatelessWidget {
     this.icon2,
     this.pill,
     this.suffixIconOnPressed,
+    this.onChange,
   });
 
   final TextEditingController controller;
@@ -86,6 +87,7 @@ class CustomTextFormField2 extends StatelessWidget {
   final VoidCallback? suffixIconOnPressed;
   final bool passwordIsVisable;
   final String? Function(String?)? validate;
+  final String? Function(String?)? onChange;
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +98,7 @@ class CustomTextFormField2 extends StatelessWidget {
         cursorColor: AppColors.primary,
         validator: validate,
         obscureText: passwordIsVisable,
+        onChanged: onChange,
         decoration: InputDecoration(
           filled: true,
           fillColor: AppColors.primaryLight,

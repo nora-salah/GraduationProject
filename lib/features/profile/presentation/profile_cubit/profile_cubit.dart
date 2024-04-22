@@ -13,7 +13,6 @@ class ProfileCubit extends Cubit<ProfileState> {
   GlobalKey<FormState> updateProfileKey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  // TextEditingController idController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   TextEditingController confirmPasswordController = TextEditingController();
@@ -29,29 +28,25 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ChangeConfirmPasswordSuffixIcon());
   }
 
+  XFile? profilePic;
+
   UpdateProfileModel? updateProfileModel;
   updateProfile() async {
     emit(UpdateProfileLoadingState());
-    try {
-      final result = await updateRepo.updateProfile(
-          name: nameController.text,
-          password: passwordController.text,
-          confirmPassword: confirmPasswordController.text,
-          email: emailController.text,
-          profilePic: profilePic!);
-      emit(UpdateProfileSuccessState());
-      //result.fold(
-      /*(errorMessage) =>
-          emit(UpdateProfileErroringState(errorMessage: errorMessage));
-      (updateProfile) => emit(UpdateProfileSuccessState());*/
-      // );
-    } catch (e) {
-      (updateProfile) =>
-          emit(UpdateProfileErroringState(errorMessage: e.toString()));
-    }
-  }
+    final result = await updateRepo.updateProfile(
+        name: nameController.text,
+        password: passwordController.text,
+        confirmPassword: confirmPasswordController.text,
+        email: emailController.text,
+        profilePic: profilePic!);
+    emit(UpdateProfileSuccessState());
+    result.fold(
+      (errorMessage) =>
+          emit(UpdateProfileErroringState(errorMessage: errorMessage)),
+      (updateProfile) => emit(UpdateProfileSuccessState()),
+    );
 
-  XFile? profilePic;
+  }
 
   void changeImageUpdateProfile(XFile value) {
     profilePic = value;
@@ -59,13 +54,11 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
 
   ProfileModel? user;
-  //////
 
   getUserProfile() async {
     emit(GetUserLoading());
     final response = await updateRepo.getUserProfile();
 
-    //final response = await updateRepo.getUserProfile();
     response.fold(
       (errMessage) => emit(GetUserFailure(errMessage: errMessage)),
       (user) => emit(GetUserSuccess(user: user)),

@@ -7,8 +7,6 @@ class UpdateProfileModel {
   final String name;
   final String profilePic;
 
-//  final String confirm_password;
-
   UpdateProfileModel({
     required this.message,
     required this.email,
@@ -20,13 +18,14 @@ class UpdateProfileModel {
   factory UpdateProfileModel.fromJson(Map<String, dynamic> jsonData) {
     return UpdateProfileModel(
       message: jsonData[Apikeys.success],
-      profilePic: jsonData['user'][Apikeys.profilePic],
-      email: jsonData['user'][Apikeys.email],
-      password: jsonData['user'][Apikeys.password],
-      name: jsonData['user'][Apikeys.name],
+      profilePic: jsonData['user'][0][Apikeys.profilePic],
+      email: jsonData['user'][0][Apikeys.email],
+      password: jsonData['user'][0][Apikeys.password],
+      name: jsonData['user'][0][Apikeys.name],
     );
   }
 }
+
 /*
 
   //final String message;

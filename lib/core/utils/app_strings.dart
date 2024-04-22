@@ -5,6 +5,7 @@ class AppStrings {
   static const String editProfile = 'Edit Profile';
   static const String showBlog = 'Show';
   static const String filed = 'filed';
+  static const String uploadImage = 'Upload Image';
 
   static const String signup = 'Signup';
   static const String signInToYourAccount = 'Sign In To Your Account';
@@ -16,6 +17,8 @@ class AppStrings {
   static const String orSignUpWith = ' or sign up with';
   static const String dontHaveAnAccount = 'Don’t Have Account?';
   static const String email = 'email';
+  static const String done = 'Done';
+
   static const String confirmPassword = 'Confirm Password';
   static const String username = 'User Name';
   static const String createAccount = 'Create Account';

@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
               text: AppStrings.pill,
               text2: AppStrings.detection,
               onPressed: () {
-                customNavigate(context, "/pillDetectionService");
+                customNavigate(context, "/InterPillImageScan");
               },
             ),
             const SizedBox(

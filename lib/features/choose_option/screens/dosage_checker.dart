@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pill_detection/features/choose_option/screens/side_effect.dart';
 
-import '../../../core/utils/app_assets.dart';
-import '../../../core/utils/app_colors.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/utils/navigate.dart';
 import '../../../core/widgets/custom_go_back.dart';
+import '../../../models/detect_opttions_model.dart';
 
 class DosageChecker extends StatelessWidget {
-  const DosageChecker({Key? key}) : super(key: key);
-
+  const DosageChecker({Key? key, required this.detectDosageModel})
+      : super(key: key);
+  final DosageDetectModel? detectDosageModel;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +27,10 @@ class DosageChecker extends StatelessWidget {
           SizedBox(
             height: 26.h,
           ),
-          CustomPillImage(),
+          //CustomPillImage(imageUrl:detectDosageModel.),
           CustomPillService(
             text1: AppStrings.dosageChecker,
-            text2: AppStrings.pillName,
+            text2: detectDosageModel!.dosage,
           ),
         ],
       ),

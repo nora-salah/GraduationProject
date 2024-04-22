@@ -192,7 +192,7 @@ class CustomContainerBlog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 375.w,
-      height: 160.h,
+      height: 190.h,
       decoration: BoxDecoration(
         color: AppColors.white,
         boxShadow: const [
@@ -203,19 +203,36 @@ class CustomContainerBlog extends StatelessWidget {
             spreadRadius: 1, // Set the spread radius
           ),
         ],
-        borderRadius: BorderRadius.circular(70),
+        borderRadius: BorderRadius.circular(50),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           /*CircleAvatar(
             backgroundColor: AppColors.white,
             backgroundImage: AssetImage(img),
             radius: 90,
           ),*/
-          Expanded(
-              child: Image.network(
-            img,
-          )),
+          Container(
+            width: 200.w,
+            height: 150.h,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.0),
+              border: Border.all(
+                color: Colors.white, // Specify your border color here
+                width: 1.0, // Specify the border width
+              ),
+              image: DecorationImage(
+                image: NetworkImage(img),
+                fit: BoxFit
+                    .cover, // This will stretch the image to cover the whole area
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 20.w,
+          ),
           Padding(
             padding: const EdgeInsets.only(
               top: 5.0,
@@ -226,10 +243,12 @@ class CustomContainerBlog extends StatelessWidget {
               children: [
                 Text(
                   text,
+                  maxLines: 2, // Set the maximum number of lines to 2
+                  softWrap: true,
                   style: Theme.of(context)
                       .textTheme
                       .displayMedium!
-                      .copyWith(overflow: TextOverflow.ellipsis),
+                      .copyWith(fontWeight: FontWeight.normal),
                 ),
                 SizedBox(
                   height: 24.h,

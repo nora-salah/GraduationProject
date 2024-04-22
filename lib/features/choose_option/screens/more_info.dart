@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pill_detection/core/utils/app_strings.dart';
 import 'package:pill_detection/features/choose_option/screens/side_effect.dart';
 
+import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/navigate.dart';
 import '../../../core/widgets/custom_go_back.dart';
 
@@ -25,7 +26,7 @@ class MoreInfo extends StatelessWidget {
           SizedBox(
             height: 26.h,
           ),
-          CustomPillImage(),
+          CustomPillImage(imageUrl: AppAssets.pills),
           CustomPillService(
             text1: AppStrings.moreAbout,
             text2: AppStrings.pillName,

@@ -9,17 +9,26 @@ class EndPoint {
   static const String userPhoto = "userphoto";
   static const String userPersonalInformation = "userpersonalinformation";
   static const String getAllBlogs = "blog/index";
-  //static const String userPersonalInformation = "userpersonalinformation";
-  // static const String userPersonalInformation = "userpersonalinformation";
-
-  static String getUserDataEndPoint(token) {
-    return '$profile';
-  }
+  static const String getDetectionData = "detection";
+  static const String getDetectionDosageData = "dosage";
+  static const String getDetectionSideEffectData = "sideeffect";
+  static const String getDetectionConstrainData = "contraindiacation";
 }
 
 class Apikeys {
   static const String email = 'email';
   static const String id = 'id';
+  static const String blogs = 'blogs';
+  static const String dosage = 'dosage';
+  static const String dosages = 'dosages';
+
+  static const String pillId = 'pill_id';
+  static const String contraindiacations = 'contraindiacations';
+
+  static const String sideEffect = 'side_effect';
+
+  static const String sideEffects = 'sideEffects';
+
   static const String username = 'username';
   static const String phone = 'phone';
   static const String title = 'title';
@@ -43,7 +52,7 @@ class Apikeys {
   static const String name = 'name';
   static const String status = 'status';
   static String profilePic = "photo";
+  static String photo = "photo";
 
-  /*  static const String status = 'status';
-*/
+  static const String description = 'description';
 }

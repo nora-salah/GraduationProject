@@ -26,7 +26,7 @@ class SideEffect extends StatelessWidget {
           SizedBox(
             height: 26.h,
           ),
-          CustomPillImage(),
+          CustomPillImage(imageUrl:AppAssets.pills ),
           const CustomPillService(
             text1: AppStrings.sideEffect,
             text2: AppStrings.pillName,
@@ -71,8 +71,43 @@ class CustomPillService extends StatelessWidget {
     );
   }
 }
-
 class CustomPillImage extends StatelessWidget {
+  final String imageUrl;
+
+  const CustomPillImage({
+    required this.imageUrl,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 350,
+      width: 400,
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.grey,
+            offset: Offset(0, 7),
+            blurRadius: 5,
+            spreadRadius: 1,
+          ),
+        ],
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
+      ),
+      child: Image.network(
+        imageUrl,
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+}
+
+/*class CustomPillImage extends StatelessWidget {
   const CustomPillImage({
     super.key,
   });
@@ -102,3 +137,8 @@ class CustomPillImage extends StatelessWidget {
         ));
   }
 }
+class AppAssets {
+  static const String basePath = 'assets/images/';
+  static const String splash = '${basePath}splash.jpg';
+}
+*/

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
@@ -6,16 +5,17 @@ import '../../../../core/utils/app_strings.dart';
 
 class ImagePackerDialog extends StatelessWidget {
   const ImagePackerDialog({
-    super.key, required this.cameraOnTap, required this.galleryOnTap,
+    super.key,
+    required this.cameraOnTap,
+    required this.galleryOnTap,
   });
-final VoidCallback cameraOnTap;
-final VoidCallback galleryOnTap;
+  final VoidCallback cameraOnTap;
+  final VoidCallback galleryOnTap;
   @override
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: AppColors.black,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -30,8 +30,7 @@ final VoidCallback galleryOnTap;
               style: Theme.of(context)
                   .textTheme
                   .displayLarge!
-                  .copyWith(
-                      color: AppColors.primary),
+                  .copyWith(color: AppColors.primary),
             ),
             onTap: cameraOnTap,
           ),
@@ -45,12 +44,10 @@ final VoidCallback galleryOnTap;
               style: Theme.of(context)
                   .textTheme
                   .displayLarge!
-                  .copyWith(
-                      color: AppColors.primary),
+                  .copyWith(color: AppColors.primary),
             ),
             onTap: galleryOnTap,
           ),
-          
         ],
       ),
     );
