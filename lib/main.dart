@@ -5,6 +5,7 @@ import 'package:pill_detection/features/auth/presentation/cubit/sign_cubit.dart'
 import 'package:pill_detection/features/choose_option/cubits/blog_cubit/blogs_cubit.dart';
 import 'package:pill_detection/features/profile/presentation/profile_cubit/profile_cubit.dart';
 import 'package:pill_detection/presentation/cubits/detect_cubit/detect_cubit.dart';
+import 'package:pill_detection/presentation/cubits/interaction_cubit.dart';
 
 import 'app/app.dart';
 import 'core/database/cache/cache_helper.dart';
@@ -25,6 +26,9 @@ void main() async {
       ),
       BlocProvider(
         create: (context) => sl<HomeCubit>(),
+      ),
+      BlocProvider(
+        create: (context) => sl<InteractionCubit>(),
       ),
       BlocProvider(
         create: (context) => sl<ProfileCubit>()..getUserProfile(),

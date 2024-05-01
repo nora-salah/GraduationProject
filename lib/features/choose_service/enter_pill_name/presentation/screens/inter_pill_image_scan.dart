@@ -118,37 +118,36 @@ class InterPillImageScan extends StatelessWidget {
               SizedBox(
                 height: 30.h,
               ),
-              state is DetectLoadingState
+              /*state is DetectLoadingState
                   ? const CircularProgressIndicator(
                       color: AppColors.primary,
                     )
-                  : Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: SizedBox(
-                              width: double.infinity,
-                              height: 50,
-                              child: CustomButton(
-                                  text: AppStrings.uploadImage,
-                                  onPressed: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                PillDetectionService(
-                                                  detectDataModel: BlocProvider
-                                                          .of<DetectCubit>(
-                                                              context)
-                                                      .uploadImageAndGetData(),
-                                                )));
-                                    /*customNavigate(
+                  :*/
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                        width: double.infinity,
+                        height: 50,
+                        child: CustomButton(
+                            text: AppStrings.uploadImage,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => PillDetectionService(
+                                        detectDataModel:
+                                            BlocProvider.of<DetectCubit>(
+                                                    context)
+                                                .uploadImageAndGetData(),
+                                      )));
+                              /*customNavigate(
                                         context, '/pillDetectionService');*/
-                                  })),
-                        )
-                      ],
-                    )
+                            })),
+                  )
+                ],
+              )
             ],
           ),
         );

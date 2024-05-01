@@ -53,3 +53,54 @@ class ImagePackerDialog extends StatelessWidget {
     );
   }
 }
+
+class ImagePackerDialog2 extends StatelessWidget {
+  const ImagePackerDialog2({
+    super.key,
+    required this.cameraOnTap,
+    required this.galleryOnTap,
+  });
+  final VoidCallback cameraOnTap;
+  final VoidCallback galleryOnTap;
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: AppColors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          //camera
+          ListTile(
+            leading: const Icon(
+              Icons.camera_alt,
+              color: AppColors.primary,
+            ),
+            title: Text(
+              AppStrings.camera,
+              style: Theme.of(context)
+                  .textTheme
+                  .displayMedium!
+                  .copyWith(color: AppColors.primary),
+            ),
+            onTap: cameraOnTap,
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.photo,
+              color: AppColors.primary,
+            ),
+            title: Text(
+              AppStrings.gallery,
+              style: Theme.of(context)
+                  .textTheme
+                  .displayMedium!
+                  .copyWith(color: AppColors.primary),
+            ),
+            onTap: galleryOnTap,
+          ),
+        ],
+      ),
+    );
+  }
+}

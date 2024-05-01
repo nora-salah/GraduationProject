@@ -3,12 +3,12 @@ import 'package:pill_detection/features/auth/presentation/screens/sign_in/signin
 import 'package:pill_detection/features/auth/presentation/screens/sign_up/singnup_screen.dart';
 import 'package:pill_detection/features/auth/presentation/screens/splash/splash_screen.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/home/home_screen.dart';
-import 'package:pill_detection/features/choose_option/screens/dosage_checker.dart';
 import 'package:pill_detection/features/choose_option/screens/more_info.dart';
 import 'package:pill_detection/features/choose_option/screens/side_effect.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/inter_pill_image_scan.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/detection/pill_detection_service.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction.dart';
+import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_by_image.dart';
 import 'package:pill_detection/features/profile/presentation/screens/edit_profile.dart';
 import 'package:pill_detection/features/profile/presentation/screens/my_profile.dart';
 import 'package:pill_detection/features/profile/presentation/screens/profile_screen.dart';
