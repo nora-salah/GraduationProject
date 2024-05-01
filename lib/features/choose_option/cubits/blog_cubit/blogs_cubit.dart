@@ -1,8 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:pill_detection/core/database/api/end_point.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pill_detection/features/choose_option/cubits/blog_cubit/blogs_state.dart';
-
 import '../../../../models/blog_model.dart';
 import '../../../../repositories/blog_repo.dart';
 

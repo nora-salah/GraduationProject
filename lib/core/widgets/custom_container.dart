@@ -65,7 +65,7 @@ class CustomContainer extends StatelessWidget {
                 SizedBox(
                   height: 24.h,
                 ),
-                Container(
+                SizedBox(
                   width: 132.w,
                   height: 32.h,
                   child: ElevatedButton(
@@ -150,7 +150,7 @@ class CustomContainer1 extends StatelessWidget {
                   SizedBox(
                     height: 24.h,
                   ),
-                  Container(
+                  SizedBox(
                     width: 132.w,
                     height: 32.h,
                     child: ElevatedButton(
@@ -253,7 +253,7 @@ class CustomContainerBlog extends StatelessWidget {
                 SizedBox(
                   height: 24.h,
                 ),
-                Container(
+                SizedBox(
                   width: 120.w,
                   height: 32.h,
                   child: ElevatedButton(

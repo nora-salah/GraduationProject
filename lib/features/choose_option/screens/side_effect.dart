@@ -26,7 +26,7 @@ class SideEffect extends StatelessWidget {
           SizedBox(
             height: 26.h,
           ),
-          CustomPillImage(imageUrl:AppAssets.pills ),
+          const CustomPillImage(imageUrl: AppAssets.pills),
           const CustomPillService(
             text1: AppStrings.sideEffect,
             text2: AppStrings.pillName,
@@ -71,6 +71,7 @@ class CustomPillService extends StatelessWidget {
     );
   }
 }
+
 class CustomPillImage extends StatelessWidget {
   final String imageUrl;
 
@@ -84,9 +85,9 @@ class CustomPillImage extends StatelessWidget {
     return Container(
       height: 350,
       width: 400,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.white,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             color: AppColors.grey,
             offset: Offset(0, 7),

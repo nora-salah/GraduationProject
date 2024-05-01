@@ -21,7 +21,7 @@ class CustomGNav extends StatelessWidget {
           selectedIndex: currentIndex,
           activeColor: AppColors.primary,
           gap: 8,
-          padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
           tabBorderRadius: 16,
           onTabChange: onChanged,
           tabBackgroundColor: AppColors.white,

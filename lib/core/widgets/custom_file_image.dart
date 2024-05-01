@@ -1,6 +1,6 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CustomFileImage extends StatelessWidget {
@@ -11,16 +11,17 @@ class CustomFileImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return image != null
         ? Container(
+            width: 200.w,
+            height: 200.h,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: FileImage(
                   File(image!.path),
-                ), // Replace 'assets/background.jpg' with your image path
-                fit: BoxFit.cover, // You can adjust the fit based on your needs
+                ),
+                fit: BoxFit.cover,
               ),
             ),
-            // Other properties of your Container
           )
-        : Container();
+        : const SizedBox();
   }
 }

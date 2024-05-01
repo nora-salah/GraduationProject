@@ -57,6 +57,7 @@ class Blogs extends StatelessWidget {
                           onChange: (value) {
                             BlocProvider.of<BlogsCubit>(context)
                                 .filteredSearch(value!);
+                            return null;
                           },
                         ),
                       ],

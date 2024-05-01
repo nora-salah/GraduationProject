@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pill_detection/core/utils/app_assets.dart';
 
 import '../utils/app_colors.dart';
 
@@ -39,7 +38,7 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         //suffix: Image.asset( AppAssets.pills,width: 25,height: 25,),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.primary, // Set the color of the border
             width: 2.0, // Set the width of the border
@@ -91,7 +90,7 @@ class CustomTextFormField2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 400.w,
       child: TextFormField(
         controller: controller,
@@ -104,7 +103,7 @@ class CustomTextFormField2 extends StatelessWidget {
           fillColor: AppColors.primaryLight,
           //suffix: Image.asset( AppAssets.pills,width: 25,height: 25,),
           contentPadding: const EdgeInsets.symmetric(horizontal: 10),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
             borderSide: BorderSide(
               color: AppColors.primary, // Set the color of the border
               width: 2.0, // Set the width of the border

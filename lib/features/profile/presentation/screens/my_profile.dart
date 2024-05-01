@@ -68,7 +68,7 @@ class MyProfileScreen extends StatelessWidget {
                           //! Name
                           ListTile(
                             title: Text(state.user.name),
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.person,
                               color: AppColors.primary,
                             ),
@@ -78,7 +78,7 @@ class MyProfileScreen extends StatelessWidget {
                           //! Email
                           ListTile(
                             title: Text(state.user.email),
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.email,
                               color: AppColors.primary,
                             ),
@@ -88,7 +88,7 @@ class MyProfileScreen extends StatelessWidget {
                           //! Phone number
                           ListTile(
                             title: Text(state.user.password),
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.lock,
                               color: AppColors.primary,
                             ),
@@ -97,7 +97,7 @@ class MyProfileScreen extends StatelessWidget {
 
                           ListTile(
                             title: Text(state.user.id),
-                            leading: Icon(
+                            leading: const Icon(
                               Icons.confirmation_num,
                               color: AppColors.primary,
                             ),
@@ -105,7 +105,7 @@ class MyProfileScreen extends StatelessWidget {
                           const SizedBox(height: 16),
                         ],
                       )
-                    : Container(
+                    : const SizedBox(
                         child: Text("failed"),
                       );
           },

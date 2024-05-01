@@ -38,7 +38,7 @@ class Apikeys {
   static const String accept = 'Accept';
   static const String success = 'success';
 
-  static const String Authorization = 'Authorization';
+  static const String authorization = 'Authorization';
   static const String password = 'password';
   static const String vEmail = 'email_verified_at';
   static const String created = 'created_at';

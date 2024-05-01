@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
               BlocProvider.of<HomeCubit>(context).changeIndex(value);
             },
             currentIndex: BlocProvider.of<HomeCubit>(context).currentIndex,
-            tabs: [
+            tabs: const [
               GButton(
                 icon: Icons.home,
                 text: AppStrings.home,

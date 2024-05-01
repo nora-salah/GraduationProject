@@ -1,6 +1,4 @@
 
- import 'package:pill_detection/models/profile_model.dart';
-
 class SignState {}
 
 class SignInitial extends SignState {}

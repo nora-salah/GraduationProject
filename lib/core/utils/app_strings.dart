@@ -44,7 +44,7 @@ class AppStrings {
 
   static const String gallery = 'gallery';
   static const String camera = 'camera';
-  static const String DPill = 'DPill';
+  static const String dPill = 'DPill';
 
   //! home-
   static const String home = 'Home';

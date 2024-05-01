@@ -1,14 +1,11 @@
 import 'package:go_router/go_router.dart';
 import 'package:pill_detection/features/auth/presentation/screens/sign_in/signin_screen.dart';
 import 'package:pill_detection/features/auth/presentation/screens/sign_up/singnup_screen.dart';
-import 'package:pill_detection/features/auth/presentation/screens/splash/splash_screen.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/home/home_screen.dart';
 import 'package:pill_detection/features/choose_option/screens/more_info.dart';
 import 'package:pill_detection/features/choose_option/screens/side_effect.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/inter_pill_image_scan.dart';
-import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/detection/pill_detection_service.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction.dart';
-import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_by_image.dart';
 import 'package:pill_detection/features/profile/presentation/screens/edit_profile.dart';
 import 'package:pill_detection/features/profile/presentation/screens/my_profile.dart';
 import 'package:pill_detection/features/profile/presentation/screens/profile_screen.dart';
@@ -20,12 +17,12 @@ import '../../models/detect_model.dart';
 late final PillDetectModel detectDataModel;
 
 final GoRouter router = GoRouter(routes: [
-  GoRoute(path: "/", builder: (context, state) => SplashScreen()),
+  GoRoute(path: "/", builder: (context, state) => const InterPillImageScan()),
   GoRoute(path: "/blogs", builder: (context, state) => const Blogs()),
-  GoRoute(path: "/specificBlog", builder: (context, state) => Blogs()),
+  GoRoute(path: "/specificBlog", builder: (context, state) => const Blogs()),
   GoRoute(
       path: "/InterPillImageScan",
-      builder: (context, state) => InterPillImageScan()),
+      builder: (context, state) => const InterPillImageScan()),
   GoRoute(
       path: "/pillInteractionRes",
       builder: (context, state) => const PillInteractionRes()),
@@ -40,9 +37,10 @@ final GoRouter router = GoRouter(routes: [
           )),*/
   GoRoute(path: "/sideEffect", builder: (context, state) => const SideEffect()),
   GoRoute(path: "/homeScreen", builder: (context, state) => HomeScreen()),
-  GoRoute(path: "/home", builder: (context, state) => Home()),
+  GoRoute(path: "/home", builder: (context, state) => const Home()),
   GoRoute(
-      path: "/pillInteraction", builder: (context, state) => PillInteraction()),
+      path: "/pillInteraction",
+      builder: (context, state) => const PillInteraction()),
   GoRoute(
       path: "/profileScreen",
       builder: (context, state) => const ProfileScreen()),

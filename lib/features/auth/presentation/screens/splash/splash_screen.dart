@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void navigateAfterThreeSeconds() {
     Future.delayed(const Duration(seconds: 3)).then((value) async {
       await sl<CacheHelper>().getData(
-                key: Apikeys.Authorization,
+                key: Apikeys.authorization,
               ) ==
               null
           ? customNavigate(context, "/signInScreen")
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: AppColors.white,
                 size: 100,
               ),
-              Text(AppStrings.DPill,
+              Text(AppStrings.dPill,
                   style: Theme.of(context).textTheme.displayLarge!.copyWith(
                       // fontWeight: FontWeight.w400,
                       fontSize: 100,

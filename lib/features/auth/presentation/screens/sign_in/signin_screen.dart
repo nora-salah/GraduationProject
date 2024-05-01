@@ -123,7 +123,7 @@ class SignInScreen extends StatelessWidget {
                       height: 87.h,
                     ),
                     state is SignInLoading
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             color: AppColors.primary,
                           )
                         : SizedBox(

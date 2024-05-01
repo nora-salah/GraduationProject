@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pill_detection/core/utils/app_colors.dart';
 import 'package:pill_detection/core/widgets/custom_button.dart';
-import 'package:pill_detection/core/widgets/custom_text_field.dart';
 import 'package:pill_detection/presentation/cubits/interaction_cubit.dart';
 import 'package:pill_detection/presentation/cubits/interaction_state.dart';
 
@@ -54,10 +53,10 @@ class PillInteraction extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: DropdownButton<String>(
                         isExpanded: true,
-                        hint: Text(
+                        hint: const Text(
                           AppStrings.pill,
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           FontAwesomeIcons.capsules,
                           color: AppColors.primary,
                         ),
@@ -97,10 +96,10 @@ class PillInteraction extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: DropdownButton<String>(
                         isExpanded: true,
-                        hint: Text(
+                        hint: const Text(
                           AppStrings.pill,
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           FontAwesomeIcons.capsules,
                           color: AppColors.primary,
                         ),

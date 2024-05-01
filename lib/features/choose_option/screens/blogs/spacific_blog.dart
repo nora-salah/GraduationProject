@@ -7,7 +7,7 @@ import '../../../../core/widgets/custom_go_back.dart';
 import '../../../../models/blog_model.dart';
 
 class SpecificBlog extends StatelessWidget {
-  SpecificBlog({
+  const SpecificBlog({
     Key? key,
     required this.blogDetails,
   }) : super(key: key);

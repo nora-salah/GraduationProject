@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
+
 class CustomButton extends StatelessWidget {
   const CustomButton(
       {super.key,
@@ -19,7 +20,11 @@ class CustomButton extends StatelessWidget {
       style: Theme.of(context).elevatedButtonTheme.style!.copyWith(
           backgroundColor: MaterialStateProperty.all(backgroundColor)),
       child: Text(
-        text,style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 24,color: AppColors.white),
+        text,
+        style: Theme.of(context)
+            .textTheme
+            .displayMedium!
+            .copyWith(fontSize: 24, color: AppColors.white),
       ),
     );
   }

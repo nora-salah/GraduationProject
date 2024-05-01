@@ -17,7 +17,6 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   setup();
   await sl<CacheHelper>().init();
-  //await CacheHelper().init();
 
   runApp(MultiBlocProvider(
     providers: [

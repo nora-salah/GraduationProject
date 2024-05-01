@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../utils/app_colors.dart';
+
 ThemeData getAppTheme() {
   return ThemeData(
     primaryColor: AppColors.primary,
@@ -17,10 +18,7 @@ ThemeData getAppTheme() {
       displayLarge: GoogleFonts.roboto(
           color: AppColors.black, fontWeight: FontWeight.w700, fontSize: 40.sp),
       displayMedium: GoogleFonts.roboto(
-        color: AppColors.black,
-        fontSize: 32.sp,
-        fontWeight: FontWeight.w700
-      ),
+          color: AppColors.black, fontSize: 32.sp, fontWeight: FontWeight.w700),
       displaySmall: GoogleFonts.roboto(
         color: AppColors.black,
         fontWeight: FontWeight.w400,
@@ -37,7 +35,7 @@ ThemeData getAppTheme() {
         //enabled border
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
-          borderSide: BorderSide(color: AppColors.primary),
+          borderSide: const BorderSide(color: AppColors.primary),
         ),
         //focused border
         focusedBorder: OutlineInputBorder(

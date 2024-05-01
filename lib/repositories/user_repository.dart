@@ -20,7 +20,7 @@ class UserRepository {
         Apikeys.password: password,
       });
       final user = SignInModel.fromJson(response);
-      CacheHelper().saveData(key: Apikeys.Authorization, value: user!.token);
+      CacheHelper().saveData(key: Apikeys.authorization, value: user.token);
       return Right(user);
     } on ServerException catch (e) {
       return Left(e.errorModel.errorMessage);

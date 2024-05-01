@@ -12,13 +12,13 @@ class PillInteractionRes extends StatelessWidget {
         children: [
            Row(
              children: [
-               Column(
+               const Column(
                  children: [],
                ),
                SizedBox(
                  width: 25.w,
                ),
-               Column(
+               const Column(
                  children: [],
                )
              ],

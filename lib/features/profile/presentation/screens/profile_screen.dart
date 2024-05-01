@@ -38,11 +38,11 @@ class ProfileScreen extends StatelessWidget {
                     color: AppColors.primary.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 radius: 100.0,
                 backgroundImage: AssetImage(AppAssets.pf),
               ),
@@ -170,7 +170,7 @@ class ProfileScreen extends StatelessWidget {
                     SizedBox(
                       width: 150.w,
                     ),
-                    Icon(Icons.check_box_outline_blank),
+                    const Icon(Icons.check_box_outline_blank),
                   ],
                 ),
               ],

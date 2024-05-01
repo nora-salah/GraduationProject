@@ -46,7 +46,7 @@ class EditProfileScreen extends StatelessWidget {
                   SizedBox(
                     height: 11.h,
                   ),
-                  PickImageWidget(),
+                  const PickImageWidget(),
                   SizedBox(
                     height: 20.h,
                   ),

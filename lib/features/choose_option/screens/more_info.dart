@@ -26,8 +26,8 @@ class MoreInfo extends StatelessWidget {
           SizedBox(
             height: 26.h,
           ),
-          CustomPillImage(imageUrl: AppAssets.pills),
-          CustomPillService(
+          const CustomPillImage(imageUrl: AppAssets.pills),
+          const CustomPillService(
             text1: AppStrings.moreAbout,
             text2: AppStrings.pillName,
           ),

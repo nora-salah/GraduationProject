@@ -6,17 +6,12 @@ import 'package:pill_detection/core/utils/app_strings.dart';
 import 'package:pill_detection/core/widgets/custom_go_back.dart';
 import 'package:pill_detection/presentation/cubits/detect_cubit/detect_cubit.dart';
 import 'package:pill_detection/presentation/cubits/detect_cubit/detect_state.dart';
-
 import '../../../../../../core/utils/navigate.dart';
 import '../../../../../../core/widgets/custom_toast.dart';
-import '../../../../../../models/detect_model.dart';
 import '../../../../../choose_option/screens/dosage_checker.dart';
 
 class PillDetectionService extends StatelessWidget {
-  PillDetectionService({Key? key, required this.detectDataModel})
-      : super(key: key);
-
-  final PillDetectModel detectDataModel;
+  const PillDetectionService({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,95 +28,104 @@ class PillDetectionService extends StatelessWidget {
               ? const CircularProgressIndicator(
                   color: AppColors.primary,
                 )
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    CustomGoBack(onPressed: () {
-                      customNavigate(context, "/homeScreen");
-                    }),
-                    SizedBox(
-                      height: 26.h,
-                    ),
-                    Container(
-                      height: 291.h,
-                      width: 345.w,
-                      decoration: BoxDecoration(
-                        color: AppColors.white,
-                        boxShadow: const [
-                          BoxShadow(
-                            color: AppColors.grey,
-                            offset: Offset(0, 5), // Set the offset
-                            blurRadius: 6, // Set the blur radius
-                            spreadRadius: 1, // Set the spread radius
-                          ),
-                        ],
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          image: NetworkImage(detectDataModel.photo),
-                          fit: BoxFit
-                              .cover, // This will stretch the image to cover the whole area
+              : BlocProvider.of<DetectCubit>(context).detectDataModel != null
+                  ? Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CustomGoBack(onPressed: () {
+                          customNavigate(context, "/homeScreen");
+                        }),
+                        SizedBox(
+                          height: 26.h,
                         ),
-                      ),
+                        Container(
+                          height: 291.h,
+                          width: 345.w,
+                          decoration: BoxDecoration(
+                            color: AppColors.white,
+                            boxShadow: const [
+                              BoxShadow(
+                                color: AppColors.grey,
+                                offset: Offset(0, 5), // Set the offset
+                                blurRadius: 6, // Set the blur radius
+                                spreadRadius: 1, // Set the spread radius
+                              ),
+                            ],
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  BlocProvider.of<DetectCubit>(context)
+                                      .detectDataModel!
+                                      .photo),
+                              fit: BoxFit
+                                  .cover, // This will stretch the image to cover the whole area
+                            ),
+                          ),
 
-                      //Image(image: AssetImage(AppAssets.fake)),
-                    ),
-                    SizedBox(
-                      height: 26.h,
-                    ),
-                    Text(
-                      detectDataModel.name,
-                      style: Theme.of(context).textTheme.displayLarge,
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    Text(
-                      detectDataModel.description,
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                    SizedBox(
-                      height: 110.h,
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          CustomService(
-                            text: AppStrings.morePillInfo2,
-                            onPressed: () {
-                              customNavigate(context, "/moreInfo");
-                            },
+                          //Image(image: AssetImage(AppAssets.fake)),
+                        ),
+                        SizedBox(
+                          height: 26.h,
+                        ),
+                        Text(
+                          BlocProvider.of<DetectCubit>(context)
+                              .detectDataModel!
+                              .name,
+                          style: Theme.of(context).textTheme.displayLarge,
+                        ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          BlocProvider.of<DetectCubit>(context)
+                              .detectDataModel!
+                              .description,
+                          style: Theme.of(context).textTheme.displaySmall,
+                        ),
+                        SizedBox(
+                          height: 110.h,
+                        ),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              CustomService(
+                                text: AppStrings.morePillInfo2,
+                                onPressed: () {
+                                  customNavigate(context, "/moreInfo");
+                                },
+                              ),
+                              SizedBox(
+                                width: 16.w,
+                              ),
+                              CustomService(
+                                text: AppStrings.sideEffect2,
+                                onPressed: () {
+                                  customNavigate(context, "/sideEffect");
+                                },
+                              ),
+                              SizedBox(
+                                width: 16.w,
+                              ),
+                              CustomService(
+                                text: AppStrings.dosageChecker,
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => DosageChecker(
+                                            detectDosageModel:
+                                                BlocProvider.of<DetectCubit>(
+                                                        context)
+                                                    .dosage[0],
+                                          )));
+                                },
+                              ),
+                            ],
                           ),
-                          SizedBox(
-                            width: 16.w,
-                          ),
-                          CustomService(
-                            text: AppStrings.sideEffect2,
-                            onPressed: () {
-                              customNavigate(context, "/sideEffect");
-                            },
-                          ),
-                          SizedBox(
-                            width: 16.w,
-                          ),
-                          CustomService(
-                            text: AppStrings.dosageChecker,
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => DosageChecker(
-                                        detectDosageModel:
-                                            BlocProvider.of<DetectCubit>(
-                                                    context)
-                                                .dosage[0],
-                                      )));
-                            },
-                          ),
-                        ],
-                      ),
+                        )
+                      ],
                     )
-                  ],
-                );
+                  : const SizedBox();
         }),
       ),
     );
