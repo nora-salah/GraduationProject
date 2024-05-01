@@ -19,6 +19,11 @@ class InteractionCubit extends Cubit<InteractionState> {
     emit(ChangeImageState2());
   }
 
+  void changeImage22(value2) {
+    image = value2;
+    emit(ChangeImageState2());
+  }
+
   List<String> pillList1 = [
     '1st Pill',
     'Banadol',
