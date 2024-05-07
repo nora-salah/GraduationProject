@@ -234,7 +234,7 @@ class ProfileScreen extends StatelessWidget {
 }
 
 /*
-*  state is GetUserLoading
+ state is GetUserLoading
                     ? CircularProgressIndicator()
                     : CustomButton(
                     text: AppStrings.profile,

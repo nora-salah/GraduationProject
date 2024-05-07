@@ -1,4 +1,4 @@
-import 'package:pill_detection/models/detect_model.dart';
+import '../../../models/detect_models/pill_detect_model.dart';
 
 abstract class DetectState {}
 

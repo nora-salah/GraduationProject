@@ -10,6 +10,8 @@ class EndPoint {
   static const String userPersonalInformation = "userpersonalinformation";
   static const String getAllBlogs = "blog/index";
   static const String getDetectionData = "detection";
+  static const String getAllPillsInteraction = "interaction/index";
+
   static const String getDetectionDosageData = "dosage";
   static const String getDetectionSideEffectData = "sideeffect";
   static const String getDetectionConstrainData = "contraindiacation";
@@ -20,6 +22,8 @@ class Apikeys {
   static const String id = 'id';
   static const String blogs = 'blogs';
   static const String dosage = 'dosage';
+  static const String data = 'data';
+
   static const String dosages = 'dosages';
 
   static const String pillId = 'pill_id';
@@ -53,6 +57,7 @@ class Apikeys {
   static const String status = 'status';
   static String profilePic = "photo";
   static String photo = "photo";
+  static String img = "img";
 
   static const String description = 'description';
 }

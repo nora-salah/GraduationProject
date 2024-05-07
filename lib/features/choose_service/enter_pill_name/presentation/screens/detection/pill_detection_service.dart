@@ -57,7 +57,8 @@ class PillDetectionService extends StatelessWidget {
                               image: NetworkImage(
                                   BlocProvider.of<DetectCubit>(context)
                                       .detectDataModel!
-                                      .photo),
+                                      .data!
+                                      .photo!),
                               fit: BoxFit
                                   .cover, // This will stretch the image to cover the whole area
                             ),
@@ -71,7 +72,8 @@ class PillDetectionService extends StatelessWidget {
                         Text(
                           BlocProvider.of<DetectCubit>(context)
                               .detectDataModel!
-                              .name,
+                              .data!
+                              .name!,
                           style: Theme.of(context).textTheme.displayLarge,
                         ),
                         SizedBox(
@@ -80,7 +82,8 @@ class PillDetectionService extends StatelessWidget {
                         Text(
                           BlocProvider.of<DetectCubit>(context)
                               .detectDataModel!
-                              .description,
+                              .data!
+                              .description!,
                           style: Theme.of(context).textTheme.displaySmall,
                         ),
                         SizedBox(

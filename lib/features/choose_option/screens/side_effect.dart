@@ -21,7 +21,8 @@ class SideEffect extends StatelessWidget {
             height: 40.h,
           ),
           CustomGoBack(onPressed: () {
-            customNavigate(context, "/pillDetectionService");
+            Navigator.pop(context);
+            //customNavigate(context, "/pillDetectionService");
           }),
           SizedBox(
             height: 26.h,

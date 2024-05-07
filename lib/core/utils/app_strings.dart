@@ -6,6 +6,12 @@ class AppStrings {
   static const String showBlog = 'Show';
   static const String filed = 'filed';
   static const String uploadImage = 'Upload Image';
+  static const String pick1 = 'Pick First Pill';
+  static const String pick2 = 'Pick Second Pill';
+  static const String pillInteractionRes = 'Pill Interaction Result';
+  static const String interactionType = 'Interaction Type :';
+  static const String interactionDescription = 'Interaction Description :';
+  static const String guides = 'Guides :';
 
   static const String signup = 'Signup';
   static const String signInToYourAccount = 'Sign In To Your Account';
@@ -81,12 +87,17 @@ class AppStrings {
       'Discuss interaction between two pills';
 
   //!TO Future edit
+  static const String showInteraction = 'Show Interaction';
+
   static const String pleaseEnterValidEmail = 'please Enter Valid email';
   static const String pleaseEnterValidName = 'please Enter Valid name';
   static const String pleaseEnterValidPassword = 'please Enter Valid password';
 
   static const String onePill = '1st Pill';
   static const String twoPill = '2nd Pill';
+  static const String interactionByImage = 'Interaction By Image';
+  static const String interactionByText = 'Interaction By Text';
+
   static const String logout = 'logout';
   static const String logoutSucessfully = 'logoutSucessfully';
   static const String changePassword = 'changePassword';

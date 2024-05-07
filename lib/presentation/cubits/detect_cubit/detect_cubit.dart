@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pill_detection/models/detect_model.dart';
-import '../../../models/detect_opttions_model.dart';
+import 'package:pill_detection/models/detect_models/detect_model.dart';
+import '../../../models/detect_models/detect_opttions_model.dart';
+import '../../../models/detect_models/pill_detect_model.dart';
 import '../../../repositories/detect_repo.dart';
 import 'detect_state.dart';
 

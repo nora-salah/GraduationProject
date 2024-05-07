@@ -47,7 +47,7 @@ class Home extends StatelessWidget {
               text: AppStrings.pill,
               text2: AppStrings.interaction,
               onPressed: () {
-                customNavigate(context, "/pillInteraction");
+                customNavigate(context, "/typeInteraction");
               },
             ),
             const SizedBox(

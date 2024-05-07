@@ -1,28 +1,41 @@
 import 'package:go_router/go_router.dart';
 import 'package:pill_detection/features/auth/presentation/screens/sign_in/signin_screen.dart';
 import 'package:pill_detection/features/auth/presentation/screens/sign_up/singnup_screen.dart';
+import 'package:pill_detection/features/auth/presentation/screens/splash/splash_screen.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/home/home_screen.dart';
 import 'package:pill_detection/features/choose_option/screens/more_info.dart';
 import 'package:pill_detection/features/choose_option/screens/side_effect.dart';
 import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/inter_pill_image_scan.dart';
-import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction.dart';
+import 'package:pill_detection/features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_by_text.dart';
 import 'package:pill_detection/features/profile/presentation/screens/edit_profile.dart';
 import 'package:pill_detection/features/profile/presentation/screens/my_profile.dart';
 import 'package:pill_detection/features/profile/presentation/screens/profile_screen.dart';
 import '../../features/choose_option/screens/blogs/blogs.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/home/home.dart';
+import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_by_image.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_result.dart';
-import '../../models/detect_model.dart';
+import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/type_interaction.dart';
+import '../../models/detect_models/detect_model.dart';
+import '../../models/detect_models/pill_detect_model.dart';
 
 late final PillDetectModel detectDataModel;
 
 final GoRouter router = GoRouter(routes: [
-  GoRoute(path: "/", builder: (context, state) => const InterPillImageScan()),
+  GoRoute(path: "/", builder: (context, state) => const SplashScreen()),
+  GoRoute(
+      path: "/typeInteraction",
+      builder: (context, state) => const TypeInteraction()),
   GoRoute(path: "/blogs", builder: (context, state) => const Blogs()),
   GoRoute(path: "/specificBlog", builder: (context, state) => const Blogs()),
   GoRoute(
+      path: "/pillInteractionByImage",
+      builder: (context, state) => const PillInteractionByImage()),
+  // GoRoute(path: "/specificBlog", builder: (context, state) => const PillInteraction()),
+
+  GoRoute(
       path: "/InterPillImageScan",
       builder: (context, state) => const InterPillImageScan()),
+
   GoRoute(
       path: "/pillInteractionRes",
       builder: (context, state) => const PillInteractionRes()),
@@ -39,8 +52,8 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(path: "/homeScreen", builder: (context, state) => HomeScreen()),
   GoRoute(path: "/home", builder: (context, state) => const Home()),
   GoRoute(
-      path: "/pillInteraction",
-      builder: (context, state) => const PillInteraction()),
+      path: "/pillInteractionByText",
+      builder: (context, state) => const PillInteractionByText()),
   GoRoute(
       path: "/profileScreen",
       builder: (context, state) => const ProfileScreen()),

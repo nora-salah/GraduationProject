@@ -1,6 +1,6 @@
-import '../core/database/api/end_point.dart';
+import '../../core/database/api/end_point.dart';
 import 'detect_opttions_model.dart';
-
+/*
 class PillDetectResponseModel {
   final PillDetectModel data;
 
@@ -55,7 +55,7 @@ class PillDetectModel {
     );
   }
 }
-
+*/
 /*
 class PillDetectModel {
   final int id;

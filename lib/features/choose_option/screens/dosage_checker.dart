@@ -5,7 +5,7 @@ import 'package:pill_detection/features/choose_option/screens/side_effect.dart';
 import '../../../core/utils/app_strings.dart';
 import '../../../core/utils/navigate.dart';
 import '../../../core/widgets/custom_go_back.dart';
-import '../../../models/detect_opttions_model.dart';
+import '../../../models/detect_models/detect_opttions_model.dart';
 
 class DosageChecker extends StatelessWidget {
   const DosageChecker({
