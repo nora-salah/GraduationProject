@@ -22,37 +22,34 @@ class InterPillImageScan extends StatelessWidget {
         }
       }, builder: (context, state) {
         final detectCubit = BlocProvider.of<DetectCubit>(context);
-        return Form(
-          key: BlocProvider.of<DetectCubit>(context).uploadKey,
-          child: Column(
-            children: [
-              //! Pick Image
-              PickImageWidget(detectCubit: detectCubit),
-              SizedBox(height: 30.h),
-              //! Image
-              CustomFileImage(image: detectCubit.image),
-              SizedBox(height: 50.h),
-              //! Upload Image
-              SizedBox(
-                width: 370.w,
-                height: 50.h,
-                child: CustomButton(
-                  text: AppStrings.uploadImage,
-                  onPressed: () {
-                    if (BlocProvider.of<DetectCubit>(context).image != null) {
-                      BlocProvider.of<DetectCubit>(context)
-                          .uploadImageAndGetData();
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const PillDetectionService(),
-                        ),
-                      );
-                    }
-                  },
-                ),
-              )
-            ],
-          ),
+        return Column(
+          children: [
+            //! Pick Image
+            PickImageWidget(detectCubit: detectCubit),
+            SizedBox(height: 30.h),
+            //! Image
+            CustomFileImage(image: detectCubit.image),
+            SizedBox(height: 50.h),
+            //! Upload Image
+            SizedBox(
+              width: 370.w,
+              height: 50.h,
+              child: CustomButton(
+                text: AppStrings.uploadImage,
+                onPressed: () {
+                  if (BlocProvider.of<DetectCubit>(context).image != null) {
+                    BlocProvider.of<DetectCubit>(context)
+                        .uploadImageAndGetData();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const PillDetectionService(),
+                      ),
+                    );
+                  }
+                },
+              ),
+            )
+          ],
         );
       }),
     );

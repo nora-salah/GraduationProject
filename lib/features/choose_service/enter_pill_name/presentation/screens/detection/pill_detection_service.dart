@@ -6,6 +6,7 @@ import 'package:pill_detection/core/utils/app_strings.dart';
 import 'package:pill_detection/core/widgets/custom_go_back.dart';
 import 'package:pill_detection/presentation/cubits/detect_cubit/detect_cubit.dart';
 import 'package:pill_detection/presentation/cubits/detect_cubit/detect_state.dart';
+
 import '../../../../../../core/utils/navigate.dart';
 import '../../../../../../core/widgets/custom_toast.dart';
 import '../../../../../choose_option/screens/dosage_checker.dart';
@@ -96,7 +97,7 @@ class PillDetectionService extends StatelessWidget {
                               CustomService(
                                 text: AppStrings.morePillInfo2,
                                 onPressed: () {
-                                  customNavigate(context, "/moreInfo");
+                                  customNavigate(context, "/AllOfDHistory");
                                 },
                               ),
                               SizedBox(
@@ -115,12 +116,7 @@ class PillDetectionService extends StatelessWidget {
                                 text: AppStrings.dosageChecker,
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => DosageChecker(
-                                            detectDosageModel:
-                                                BlocProvider.of<DetectCubit>(
-                                                        context)
-                                                    .dosage[0],
-                                          )));
+                                      builder: (context) => DosageChecker()));
                                 },
                               ),
                             ],
@@ -170,6 +166,10 @@ class CustomService extends StatelessWidget {
   }
 }
 /*
+detectDosageModel:
+                                                BlocProvider.of<DetectCubit>(
+                                                        context)
+                                                    .dosage[0]
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

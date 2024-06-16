@@ -5,9 +5,15 @@ import 'package:pill_detection/core/widgets/custom_go_back.dart';
 import '../../../../../../core/utils/app_assets.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_strings.dart';
+import '../../../../../../models/interact_model.dart';
 
 class PillInteractionRes extends StatelessWidget {
-  const PillInteractionRes({Key? key}) : super(key: key);
+    PillInteractionRes({
+    required this.dataModel
+  });
+
+  DataModel dataModel;
+  //String p1N = dataModel!.interaction.pill1.name;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +48,12 @@ class PillInteractionRes extends StatelessWidget {
                             spreadRadius: 1, // Set the spread radius
                           ),
                         ],
+                        image: DecorationImage(
+                          image: NetworkImage(AppAssets.pills),
+                          fit: BoxFit
+                              .cover, // This will stretch the image to cover the whole area
+                        ),
                       ),
-                      child: Image.asset(AppAssets.pills),
                     ),
                     SizedBox(height: 10.h),
                     Text(
@@ -70,8 +80,12 @@ class PillInteractionRes extends StatelessWidget {
                             spreadRadius: 1, // Set the spread radius
                           ),
                         ],
+                        image: DecorationImage(
+                          image: NetworkImage(AppAssets.pills),
+                          fit: BoxFit
+                              .cover, // This will stretch the image to cover the whole area
+                        ),
                       ),
-                      child: Image.asset(AppAssets.pills),
                     ),
                     SizedBox(height: 10.h),
                     Text(
@@ -117,7 +131,7 @@ class PillInteractionRes extends StatelessWidget {
                                 ),
                       ),
                       Text(
-                        AppStrings.space,
+                        dataModel!.interactionType,
                         style:
                             Theme.of(context).textTheme.displayMedium!.copyWith(
                                   fontSize: 20,
@@ -131,7 +145,7 @@ class PillInteractionRes extends StatelessWidget {
                                 ),
                       ),
                       Text(
-                        AppStrings.space,
+                        dataModel!.interactionDescription,
                         style:
                             Theme.of(context).textTheme.displayMedium!.copyWith(
                                   fontSize: 20,
@@ -145,7 +159,7 @@ class PillInteractionRes extends StatelessWidget {
                                 ),
                       ),
                       Text(
-                        AppStrings.space,
+                        dataModel!.guides,
                         style:
                             Theme.of(context).textTheme.displayMedium!.copyWith(
                                   fontSize: 20,

@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pill_detection/function/upload_image_to_api.dart';
-import 'package:pill_detection/models/detect_models/detect_model.dart';
 import '../core/database/api/api_consumer.dart';
 import '../core/database/api/end_point.dart';
 import '../core/error/exception.dart';
@@ -26,7 +25,9 @@ class DetectRepo {
       return Left(e.errorModel.errorMessage);
     }
   }
+}
 
+/*
   Future<Either<String, DosageDetectModel>> getDetectionDosageData(
       {required String id}) async {
     try {
@@ -35,6 +36,7 @@ class DetectRepo {
       return Right(DosageDetectModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.errorMessage);
+
     }
   }
 
@@ -58,5 +60,4 @@ class DetectRepo {
     } on ServerException catch (e) {
       return Left(e.errorModel.errorMessage);
     }
-  }
-}
+  }*/

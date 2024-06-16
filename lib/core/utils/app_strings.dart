@@ -4,7 +4,10 @@ class AppStrings {
   static const String signin = 'Signin';
   static const String editProfile = 'Edit Profile';
   static const String showBlog = 'Show';
+  static const String showIH = 'Show';
   static const String filed = 'filed';
+  static const String delete = 'Delete';
+
   static const String uploadImage = 'Upload Image';
   static const String pick1 = 'Pick First Pill';
   static const String pick2 = 'Pick Second Pill';

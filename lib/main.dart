@@ -5,6 +5,7 @@ import 'package:pill_detection/features/auth/presentation/cubit/sign_cubit.dart'
 import 'package:pill_detection/features/choose_option/cubits/blog_cubit/blogs_cubit.dart';
 import 'package:pill_detection/features/profile/presentation/profile_cubit/profile_cubit.dart';
 import 'package:pill_detection/presentation/cubits/detect_cubit/detect_cubit.dart';
+import 'package:pill_detection/presentation/cubits/hitory_cubit/history_cubit.dart';
 import 'package:pill_detection/presentation/cubits/interaction_cubit.dart';
 
 import 'app/app.dart';
@@ -27,7 +28,7 @@ void main() async {
         create: (context) => sl<HomeCubit>(),
       ),
       BlocProvider(
-        create: (context) => sl<InteractionCubit>(),
+        create: (context) => sl<InteractionCubit>()..getAllPills(),
       ),
       BlocProvider(
         create: (context) => sl<ProfileCubit>()..getUserProfile(),
@@ -37,6 +38,9 @@ void main() async {
       ),
       BlocProvider(
         create: (context) => sl<BlogsCubit>()..getAllBlogs(),
+      ),
+      BlocProvider(
+        create: (context) => sl<HistoryCubit>()..getAllDHistory(),
       ),
     ],
     child: const MyApp(),

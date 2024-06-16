@@ -97,11 +97,11 @@ void handleDioException(DioException e) {
 
     case DioExceptionType.cancel:
       throw CancelException(
-          ErrorModel(errorMessage: e.toString(), status: e.hashCode));
+          ErrorModel(errorMessage: e.toString(),));
 
     case DioExceptionType.unknown:
       throw UnknownException(
-          ErrorModel(errorMessage: e.toString(), status: e.hashCode));
+          ErrorModel(errorMessage: e.toString(),));
     // throw ServerException('badResponse');
   }
 }

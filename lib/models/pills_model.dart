@@ -1,3 +1,5 @@
+import 'package:pill_detection/models/specific_pill_model.dart';
+
 import '../core/database/api/end_point.dart';
 
 class GetAllPillsModel {
@@ -12,18 +14,6 @@ class GetAllPillsModel {
       pills: (jsonData[Apikeys.data] as List<dynamic>)
           .map((e) => PillModel.fromJson(e))
           .toList(),
-    );
-  }
-}
-
-class PillModel {
-  final String name;
-  PillModel({
-    required this.name,
-  });
-  factory PillModel.fromJson(Map<String, dynamic> jsonData) {
-    return PillModel(
-      name: jsonData[Apikeys.name],
     );
   }
 }

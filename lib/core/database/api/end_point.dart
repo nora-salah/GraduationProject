@@ -11,10 +11,22 @@ class EndPoint {
   static const String getAllBlogs = "blog/index";
   static const String getDetectionData = "detection";
   static const String getAllPillsInteraction = "interaction/index";
+  static const String getInteractions = "interaction";
+  static const String getInteractionHistory = "interaction/history";
+  static const String getDetectionHistory = "detection/history";
+
+  static const String getImageInteraction = "imageInteraction";
 
   static const String getDetectionDosageData = "dosage";
   static const String getDetectionSideEffectData = "sideeffect";
   static const String getDetectionConstrainData = "contraindiacation";
+  static String getSpecificDetectionHistory(id) {
+    return "detection/history/show/$id";
+  }
+
+  static String deleteSpecificDetectionHistory(id) {
+    return "detection/history/delete/$id";
+  }
 }
 
 class Apikeys {
@@ -23,6 +35,14 @@ class Apikeys {
   static const String blogs = 'blogs';
   static const String dosage = 'dosage';
   static const String data = 'data';
+  static const String pill1Photo = 'pill_1_photo';
+  static const String pill2Photo = 'pill_2_photo';
+  static const String interactionType = 'interaction_type';
+  static const String interactionId = 'interaction_id';
+  static const String createdAt = 'created_at';
+  static const String userPillPhoto = 'userPillPhoto';
+  static const String pillPhoto = 'pillPhoto';
+  static const String pillName = 'pillName';
 
   static const String dosages = 'dosages';
 
@@ -51,6 +71,8 @@ class Apikeys {
   static const String rememberToken = 'remember_token';
   static const String confirmPassword = 'confirm_password';
   static const String message = 'message';
+    static const String errorMessage = 'errorMessage';
+
   static const String token = 'token';
   static const String code = 'code';
   static const String name = 'name';
@@ -58,6 +80,8 @@ class Apikeys {
   static String profilePic = "photo";
   static String photo = "photo";
   static String img = "img";
+  static String img1 = "img1";
+  static String img2 = "img2";
 
   static const String description = 'description';
 }

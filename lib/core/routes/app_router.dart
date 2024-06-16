@@ -15,13 +15,14 @@ import '../../features/choose_service/enter_pill_name/presentation/screens/home/
 import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_by_image.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_result.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/type_interaction.dart';
-import '../../models/detect_models/detect_model.dart';
+import '../../features/history/history_of_detection/history_of_all_detection.dart';
+import '../../features/history/history_of_interaction/history_of_all_interaction.dart';
 import '../../models/detect_models/pill_detect_model.dart';
 
 late final PillDetectModel detectDataModel;
 
 final GoRouter router = GoRouter(routes: [
-  GoRoute(path: "/", builder: (context, state) => const SplashScreen()),
+  GoRoute(path: "/", builder: (context, state) => SplashScreen()),
   GoRoute(
       path: "/typeInteraction",
       builder: (context, state) => const TypeInteraction()),
@@ -37,8 +38,12 @@ final GoRouter router = GoRouter(routes: [
       builder: (context, state) => const InterPillImageScan()),
 
   GoRoute(
+      path: "/AllOfDHistory",
+      builder: (context, state) => const AllOfDHistory()),
+
+  /* GoRoute(
       path: "/pillInteractionRes",
-      builder: (context, state) => const PillInteractionRes()),
+      builder: (context, state) => PillInteractionRes()),*/
   GoRoute(
       path: "/signUpScreen", builder: (context, state) => const SignUpScreen()),
   GoRoute(
