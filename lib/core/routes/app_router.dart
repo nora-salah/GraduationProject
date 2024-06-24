@@ -13,10 +13,11 @@ import 'package:pill_detection/features/profile/presentation/screens/profile_scr
 import '../../features/choose_option/screens/blogs/blogs.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/home/home.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_by_image.dart';
-import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/pill_interaction_result.dart';
+import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/try.dart';
 import '../../features/choose_service/enter_pill_name/presentation/screens/interaction/type_interaction.dart';
 import '../../features/history/history_of_detection/history_of_all_detection.dart';
 import '../../features/history/history_of_interaction/history_of_all_interaction.dart';
+import '../../features/history/select_type_of_history.dart';
 import '../../models/detect_models/pill_detect_model.dart';
 
 late final PillDetectModel detectDataModel;
@@ -40,6 +41,9 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
       path: "/AllOfDHistory",
       builder: (context, state) => const AllOfDHistory()),
+  GoRoute(path: "/AllOfIHistory", builder: (context, state) => AllOfIHistory()),
+  GoRoute(
+      path: "/TypeHistory", builder: (context, state) => const TypeHistory()),
 
   /* GoRoute(
       path: "/pillInteractionRes",
@@ -69,45 +73,3 @@ final GoRouter router = GoRouter(routes: [
       path: "/myProfileScreen",
       builder: (context, state) => const MyProfileScreen()),
 ]);
-
-/*
-import 'package:flutter/material.dart';
-
-import '../../features/auth/presentation/screens/splash/splash_screen.dart';
-
-class Routes {
-  static const String initialRoute = '/';
-  static const String signin = '/signin';
-  static const String signup = '/signup';
-  static const String chooseService = '/chooseService';
-  static const String pillDetection = '/pillDetection';
-  static const String pillInteraction = '/pillInteraction';
-  static const String resPillInteraction = '/resPillInteraction';
-  static const String resPillDetection = '/resPillDetection';
-  static const String profile = '/profile';
-  static const String dosageChecker = '/dosageChecker';
-
-  static const String moreInfo = '/moreInfo';
-  static const String home = '/home';
-  static const String sideEffects = '/sideEffects';
-
- // static const String home = '/home';
-
-}
-
-class AppRoutes {
-  static Route? generateRoute(RouteSettings routeSettings) {
-    switch (routeSettings.name) {
-      case Routes.initialRoute:
-        return MaterialPageRoute(builder: (_) =>  SplashScreen());
-       default:
-        return MaterialPageRoute(
-            builder: (_) => const Scaffold(
-              body: Center(
-                child: Text('No Found Route'),
-              ),
-            ));
-    }
-  }
-}
-*/

@@ -17,15 +17,20 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 160.h,
-              width: 430.w,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
+                height: 160.h,
+                width: 430.w,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(30),
+                  ),
+                  color: AppColors.primaryLight,
                 ),
-                color: AppColors.primaryLight,
-              ),
-            ),
+                child: Center(
+                  child: Text(
+                    AppStrings.mainServices,
+                    style: Theme.of(context).textTheme.displayMedium,
+                  ),
+                )),
             SizedBox(
               height: 19.h,
             ),

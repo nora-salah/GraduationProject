@@ -44,7 +44,7 @@ class Blogs extends StatelessWidget {
                     child: Column(
                       children: [
                         CustomGoBack(onPressed: () {
-                          customNavigate(context, "/homeScreen");
+                          Navigator.pop(context);
                         }),
                         SizedBox(
                           height: 12.h,

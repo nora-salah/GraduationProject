@@ -102,13 +102,11 @@ class SignInScreen extends StatelessWidget {
                       height: 9.h,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
                           AppStrings.rememberMe,
                           style: Theme.of(context).textTheme.displaySmall,
-                        ),
-                        SizedBox(
-                          width: 75.w,
                         ),
                         Text(
                           AppStrings.forgetPassword,
@@ -120,11 +118,13 @@ class SignInScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 87.h,
+                      height: 67.h,
                     ),
                     state is SignInLoading
-                        ? const CircularProgressIndicator(
-                            color: AppColors.primary,
+                        ? Center(
+                            child: const CircularProgressIndicator(
+                              color: AppColors.primary,
+                            ),
                           )
                         : SizedBox(
                             height: 55.h,
@@ -240,7 +240,7 @@ class OtherMethodToSign extends StatelessWidget {
       children: [
         const Divider(
           color: AppColors.black, // Set the color of the line
-          thickness: 2.0, // Set the thickness of the line
+          thickness: 1.0, // Set the thickness of the line
         ),
         const Text(AppStrings.space),
         Text(
@@ -249,7 +249,7 @@ class OtherMethodToSign extends StatelessWidget {
         ),
         const Divider(
           color: AppColors.black, // Set the color of the line
-          thickness: 2.0, // Set the thickness of the line
+          thickness: 1.0, // Set the thickness of the line
         ),
         const Text(AppStrings.space),
       ],

@@ -22,15 +22,15 @@ class ProfileScreen extends StatelessWidget {
           children: [
             CustomGoBack(
               onPressed: () {
-                customNavigate(context, "/home");
+                Navigator.pop(context);
               },
             ),
             SizedBox(
               height: 11.h,
             ),
             Container(
-              width: 170.0,
-              height: 170.0,
+              width: 200.0,
+              height: 200.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 boxShadow: [
@@ -43,8 +43,8 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
               child: const CircleAvatar(
-                radius: 100.0,
-                backgroundImage: AssetImage(AppAssets.pf),
+                radius: 200.0,
+                backgroundImage: AssetImage(AppAssets.nor),
               ),
             ),
             SizedBox(
@@ -52,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             Center(
               child: Text(
-                AppStrings.username,
+                AppStrings.norasalah,
                 style: Theme.of(context).textTheme.displayLarge,
               ),
             ),
@@ -109,7 +109,9 @@ class ProfileScreen extends StatelessWidget {
             Row(
               children: [
                 CustomButtonIcon(
-                  onPressed: () {},
+                  onPressed: () {
+                    customNavigate(context, "/TypeHistory");
+                  },
                   icon: const Icon(Icons.history),
                 ),
                 SizedBox(

@@ -191,8 +191,8 @@ class CustomContainerBlog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 375.w,
-      height: 190.h,
+      width: 370.w,
+      height: 260.h,
       decoration: BoxDecoration(
         color: AppColors.white,
         boxShadow: const [
@@ -205,72 +205,66 @@ class CustomContainerBlog extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(50),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          /*CircleAvatar(
-            backgroundColor: AppColors.white,
-            backgroundImage: AssetImage(img),
-            radius: 90,
-          ),*/
-          Container(
-            width: 200.w,
-            height: 150.h,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.0),
-              border: Border.all(
-                color: Colors.white, // Specify your border color here
-                width: 1.0, // Specify the border width
-              ),
-              image: DecorationImage(
-                image: NetworkImage(img),
-                fit: BoxFit
-                    .cover, // This will stretch the image to cover the whole area
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            /*CircleAvatar(
+              backgroundColor: AppColors.white,
+              backgroundImage: AssetImage(img),
+              radius: 90,
+            ),*/
+            Container(
+              width: 280.w,
+              height: 150.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                border: Border.all(
+                  color: Colors.white, // Specify your border color here
+                  width: 1.0, // Specify the border width
+                ),
+                image: DecorationImage(
+                  image: NetworkImage(img),
+                  fit: BoxFit
+                      .cover, // This will stretch the image to cover the whole area
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            width: 20.w,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 5.0,
+            SizedBox(
+              height: 5.h,
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  text,
-                  maxLines: 2, // Set the maximum number of lines to 2
-                  softWrap: true,
+            Text(
+              text,
+              maxLines: 3,
+              textAlign:
+                  TextAlign.center, // Set the maximum number of lines to 2
+              softWrap: true,
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall!
+                  .copyWith(fontWeight: FontWeight.normal, fontSize: 15),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            SizedBox(
+              width: 120.w,
+              height: 32.h,
+              child: ElevatedButton(
+                onPressed: onPressed,
+                child: Text(
+                  btnText,
                   style: Theme.of(context)
                       .textTheme
                       .displayMedium!
-                      .copyWith(fontWeight: FontWeight.normal),
+                      .copyWith(fontSize: 24),
                 ),
-                SizedBox(
-                  height: 24.h,
-                ),
-                SizedBox(
-                  width: 120.w,
-                  height: 32.h,
-                  child: ElevatedButton(
-                    onPressed: onPressed,
-                    child: Text(
-                      btnText,
-                      style: Theme.of(context)
-                          .textTheme
-                          .displayMedium!
-                          .copyWith(fontSize: 24),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

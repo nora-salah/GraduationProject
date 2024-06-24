@@ -60,7 +60,7 @@ class PillInteractionByImage extends StatelessWidget {
                   : SizedBox(
                       width: 400.w,
                       child: CustomButton(
-                          text: AppStrings.showInteraction,
+                          text: "Show Interaction By Image",
                           onPressed: () {
                             if (BlocProvider.of<InteractionCubit>(context)
                                         .image !=

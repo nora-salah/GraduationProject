@@ -1,25 +1,25 @@
 class Contraindiacation {
   int? id;
-  String? contraindiacations;
+  String? contraindiacation;
   int? pillId;
 
   Contraindiacation({
     this.id,
-    this.contraindiacations,
+    this.contraindiacation,
     this.pillId,
   });
 
   factory Contraindiacation.fromJson(Map<String, dynamic> json) {
     return Contraindiacation(
       id: json['id'] as int?,
-      contraindiacations: json['contraindiacations'] as String?,
+      contraindiacation: json['contraindication'] as String?,
       pillId: json['pill_id'] as int?,
     );
   }
 
   Map<String, dynamic> toJson() => {
         'id': id,
-        'contraindiacations': contraindiacations,
+        'contraindication': contraindiacation,
         'pill_id': pillId,
       };
 }

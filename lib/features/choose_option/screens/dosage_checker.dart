@@ -38,7 +38,7 @@ class DosageChecker extends StatelessWidget {
                         height: 40.h,
                       ),
                       CustomGoBack(onPressed: () {
-                        customNavigate(context, "/pillDetectionService");
+                        Navigator.pop(context);
                       }),
                       SizedBox(
                         height: 26.h,
@@ -70,50 +70,75 @@ class DosageChecker extends StatelessWidget {
 
                         //Image(image: AssetImage(AppAssets.fake)),
                       ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
                       Text(
                         BlocProvider.of<DetectCubit>(context)
                             .detectDataModel!
                             .data!
                             .name!,
-                        style: Theme.of(context).textTheme.displayLarge,
+                        style: Theme.of(context).textTheme.displayMedium,
                       ),
                       SizedBox(
-                        height: 20.h,
+                        height: 39.h,
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            "Dosages:",
-                            style: Theme.of(context).textTheme.displayMedium,
+                      Padding(
+                        padding: const EdgeInsets.all(3.0),
+                        child: Container(
+                          width: 370,
+                          height: 270.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: AppColors.grey2,
                           ),
-                          Text(
-                            BlocProvider.of<DetectCubit>(context)
-                                .detectDataModel!
-                                .data!
-                                .dosages![0]
-                                .dosage!,
-                            style: Theme.of(context)
-                                .textTheme
-                                .displayMedium!
-                                .copyWith(
-                                    fontWeight: FontWeight.normal,
-                                    color: AppColors.primary),
+                          child: SingleChildScrollView(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Dosage:",
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                ),
+                                SizedBox(
+                                  height: 7.h,
+                                ),
+                                Column(
+                                  children: List.generate(
+                                    BlocProvider.of<DetectCubit>(context)
+                                        .detectDataModel!
+                                        .data!
+                                        .dosages!
+                                        .length,
+                                    (index) => Column(
+                                      children: [
+                                        Text(
+                                          '* ${BlocProvider.of<DetectCubit>(context).detectDataModel!.data!.dosages![index].dosage!}',
+                                          textAlign: TextAlign.center,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displayMedium!
+                                              .copyWith(
+                                                fontWeight: FontWeight.normal,
+                                                color: AppColors.teal,
+                                                fontSize: 20,
+                                              ),
+                                        ),
+                                        SizedBox(
+                                          height: 7.h,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                      Expanded(
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: BlocProvider.of<DetectCubit>(context)
-                                .allDosages!
-                                .length,
-                            itemBuilder: (context, index) {
-                              return showDosage(
-                                model: BlocProvider.of<DetectCubit>(context)
-                                    .allDosages[index],
-                                context: context,
-                              );
-                            }),
+                        ),
                       ),
                     ],
                   )
@@ -142,7 +167,47 @@ Widget showDosage({required Dosage model, required BuildContext context}) {
   );
 }
 
-/*    return Scaffold(
+/*
+
+
+ contraindication Text(
+                                  BlocProvider.of<DetectCubit>(context)
+                                      .detectDataModel!
+                                      .data!
+                                      .contraindiacations![4]
+                                      .contraindiacations!,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .displayMedium!
+                                      .copyWith(
+                                          fontWeight: FontWeight.normal,
+                                          color: AppColors.teal,
+                                          fontSize: 20),
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Text(
+                                  BlocProvider.of<DetectCubit>(context)
+                                      .detectDataModel!
+                                      .data!
+                                      .contraindiacations![4]
+                                      .contraindiacations!,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .displayMedium!
+                                      .copyWith(
+                                          fontWeight: FontWeight.normal,
+                                          color: AppColors.teal,
+                                          fontSize: 20),
+                                ),.sideEffects![0]
+                                      .sideEffect!,
+
+
+
+
+
+  return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child:

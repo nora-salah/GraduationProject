@@ -39,8 +39,11 @@ void main() async {
       BlocProvider(
         create: (context) => sl<BlogsCubit>()..getAllBlogs(),
       ),
+      BlocProvider(create: (context) => sl<HistoryCubit>()..getAllDHistory()),
       BlocProvider(
-        create: (context) => sl<HistoryCubit>()..getAllDHistory(),
+        create: (context) => sl<HistoryCubit>()
+          ..getAllDHistory()
+          ..getAllIHistory(),
       ),
     ],
     child: const MyApp(),

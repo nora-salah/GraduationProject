@@ -15,12 +15,12 @@ class CustomFileImage extends StatelessWidget {
             width: 200.w,
             height: 200.h,
             decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              borderRadius: BorderRadius.circular(30),
               image: DecorationImage(
                 image: FileImage(
                   File(image!.path),
                 ),
-                fit: BoxFit.fill,
+                fit: BoxFit.contain,
               ),
             ),
           )

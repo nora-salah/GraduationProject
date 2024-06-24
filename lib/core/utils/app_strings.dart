@@ -6,12 +6,21 @@ class AppStrings {
   static const String showBlog = 'Show';
   static const String showIH = 'Show';
   static const String filed = 'filed';
+  static const String mainServices = 'Main Services';
+
   static const String delete = 'Delete';
+  static const String pillHistory = 'Pill History';
+  static const String pillDHistory = 'Pill Detection History';
+  static const String pillIHistory = 'Pill Interaction History';
+  static const String norasalah = 'Nora Salah';
 
   static const String uploadImage = 'Upload Image';
   static const String pick1 = 'Pick First Pill';
   static const String pick2 = 'Pick Second Pill';
   static const String pillInteractionRes = 'Pill Interaction Result';
+  static const String pillInteractionHistoryRes =
+      'Pill Interaction History Result';
+
   static const String interactionType = 'Interaction Type :';
   static const String interactionDescription = 'Interaction Description :';
   static const String guides = 'Guides :';
@@ -22,8 +31,8 @@ class AppStrings {
   static const String forgetPassword = 'Forgot Password?';
   static const String rememberMe = 'Remember Me';
   static const String login = 'Login';
-  static const String orSignInWith = ' or sign in with';
-  static const String orSignUpWith = ' or sign up with';
+  static const String orSignInWith = 'or sign in with';
+  static const String orSignUpWith = 'or sign up with';
   static const String dontHaveAnAccount = 'Don’t Have Account?';
   static const String email = 'email';
   static const String done = 'Done';
@@ -31,7 +40,7 @@ class AppStrings {
   static const String confirmPassword = 'Confirm Password';
   static const String username = 'User Name';
   static const String createAccount = 'Create Account';
-  static const String iAgreeToThe = 'I agree to the ';
+  static const String iAgreeToThe = 'I agree to';
   static const String privacyPolicy = 'Privacy policy';
   static const String alreadyHaveAccount = 'Already Have Account?';
   static const String search = 'Search';

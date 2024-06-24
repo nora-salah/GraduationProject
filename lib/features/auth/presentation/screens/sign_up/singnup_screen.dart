@@ -134,9 +134,6 @@ class SignUpScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w400,
                                 ),
                       ),
-                      SizedBox(
-                        width: 0.2.h,
-                      ),
                       CustomTextButton(
                           text: AppStrings.privacyPolicy,
                           onPressed: () {
@@ -151,12 +148,10 @@ class SignUpScreen extends StatelessWidget {
                     height: 55.h,
                     width: 330.w,
                     child: state is SignUpLoading
-                        ? const SizedBox(
-                            height: 50,
-                            width: 50,
+                        ? const Center(
                             child: CircularProgressIndicator(
-                              color: AppColors.primary,
-                            ))
+                            color: AppColors.primary,
+                          ))
                         : CustomButton(
                             text: AppStrings.createAccount,
                             onPressed: () {

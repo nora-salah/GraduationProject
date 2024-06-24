@@ -26,8 +26,10 @@ class PillDetectionService extends StatelessWidget {
           }
         }, builder: (context, state) {
           return state is DetectLoadingState
-              ? const CircularProgressIndicator(
-                  color: AppColors.primary,
+              ? const Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primary,
+                  ),
                 )
               : BlocProvider.of<DetectCubit>(context).detectDataModel != null
                   ? Column(
@@ -35,7 +37,7 @@ class PillDetectionService extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         CustomGoBack(onPressed: () {
-                          customNavigate(context, "/homeScreen");
+                          Navigator.pop(context);
                         }),
                         SizedBox(
                           height: 26.h,
@@ -70,25 +72,48 @@ class PillDetectionService extends StatelessWidget {
                         SizedBox(
                           height: 26.h,
                         ),
-                        Text(
-                          BlocProvider.of<DetectCubit>(context)
-                              .detectDataModel!
-                              .data!
-                              .name!,
-                          style: Theme.of(context).textTheme.displayLarge,
+                        Padding(
+                          padding: const EdgeInsets.all(3.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 300.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: AppColors.primaryLight,
+                            ),
+                            child: SingleChildScrollView(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    BlocProvider.of<DetectCubit>(context)
+                                        .detectDataModel!
+                                        .data!
+                                        .name!,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayLarge!
+                                        .copyWith(fontSize: 33),
+                                  ),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Text(
+                                    BlocProvider.of<DetectCubit>(context)
+                                        .detectDataModel!
+                                        .data!
+                                        .description!,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
-                          height: 5.h,
-                        ),
-                        Text(
-                          BlocProvider.of<DetectCubit>(context)
-                              .detectDataModel!
-                              .data!
-                              .description!,
-                          style: Theme.of(context).textTheme.displaySmall,
-                        ),
-                        SizedBox(
-                          height: 110.h,
+                          height: 10.h,
                         ),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
@@ -97,7 +122,7 @@ class PillDetectionService extends StatelessWidget {
                               CustomService(
                                 text: AppStrings.morePillInfo2,
                                 onPressed: () {
-                                  customNavigate(context, "/AllOfDHistory");
+                                  customNavigate(context, "/moreInfo");
                                 },
                               ),
                               SizedBox(
